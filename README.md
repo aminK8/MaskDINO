@@ -357,3 +357,8 @@ Many thanks to these excellent opensource projects
 * [Mask2Former](https://github.com/facebookresearch/Mask2Former) 
 * [DINO](https://github.com/IDEA-Research/DINO)
 
+
+
+python demo.py --config-file ../configs/coco/instance-segmentation/maskdino_R50_bs16_50ep_3s.yaml \
+  --input ~/dataset/seg_object_detection/auto_translate_v4-3/test/17_coco_png_jpg.rf.c5ed3e601de7cef3b7f7a0db4e04921c.jpg --output image_file_output --opts MODEL.WEIGHTS ~/MaskDino-ZOO/maskdino_r50_50ep_300q_hid2048_3sd1_instance_maskenhanced_mask46.3ap_box51.7ap.pth
+

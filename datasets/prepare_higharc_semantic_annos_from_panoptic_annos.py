@@ -45,7 +45,7 @@ def separate_coco_semantic_from_panoptic(panoptic_json, panoptic_root, sem_seg_r
     id_map = {}  # map from category id to id in the output semantic annotation
     assert len(categories) <= 254
     for i, k in enumerate(categories):
-        id_map[k["id"]] = i
+        id_map[k] = i
     # what is id = 0?
     # id_map[0] = 255
     print(id_map)
@@ -57,8 +57,8 @@ def separate_coco_semantic_from_panoptic(panoptic_json, panoptic_root, sem_seg_r
 
     def iter_annotations():
         for anno in obj["annotations"]:
-            file_name = anno["file_name"]
-            segments = anno["segments_info"]
+            file_name = obj['images'][anno['image_id']]["file_name"]
+            segments = anno["segmentation"]
             input = os.path.join(panoptic_root, file_name)
             output = os.path.join(sem_seg_root, file_name)
             yield input, output, segments
@@ -73,23 +73,56 @@ def separate_coco_semantic_from_panoptic(panoptic_json, panoptic_root, sem_seg_r
     print("Finished. time: {:.2f}s".format(time.time() - start))
 
 
+
+mscoco_category2name = {
+    1: "bath",
+    2: "bed_closet",
+    3: "bed_pass",
+    4: "bedroom",
+    5: "chase",
+    6: "closet",
+    7: "dining",
+    8: "entry",
+    9: "fireplace",
+    10: "flex",
+    11: "foyer",
+    12: "front_porch",
+    13: "garage",
+    14: "general",
+    15: "hall",
+    16: "hall_cased_opening",
+    17: "kitchen",
+    18: "laundry",
+    19: "living",
+    20: "master_bed",
+    21: "master_closet",
+    22: "master_hall",
+    23: "master_vestibule",
+    24: "mech",
+    25: "mudroom",
+    26: "office",
+    27: "pantry",
+    28: "patio",
+    29: "portico",
+    30: "powder",
+    31: "reach_closet",
+    32: "reading_nook",
+    33: "rear_porch",
+    34: "solarium",
+    35: "stairs_editor",
+    36: "util_hall",
+    37: "walk",
+    38: "water_closet",
+    39: "workshop"
+}
+
 if __name__ == "__main__":
-    dataset_dir = os.path.join('~/fiftyone/coco-2017')
-    for s in ["validations"]:
+    # dataset_dir = '~/dataset/seg_object_detection/auto_translate_v4-3'
+    dataset_dir = '/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation'
+    for s in ["train", "test", "valid"]:
         separate_coco_semantic_from_panoptic(
             os.path.join(dataset_dir, "annotations/panoptic_{}.json".format(s)),
             os.path.join(dataset_dir, "panoptic_{}".format(s)),
             os.path.join(dataset_dir, "panoptic_semseg_{}".format(s)),
-            COCO_CATEGORIES,
+            mscoco_category2name,
         )
-
-
-# if __name__ == "__main__":
-#     dataset_dir = os.path.join(os.getenv("DETECTRON2_DATASETS", "datasets"), "coco")
-#     for s in ["val2017", "train2017"]:
-#         separate_coco_semantic_from_panoptic(
-#             os.path.join(dataset_dir, "annotations/panoptic_{}.json".format(s)),
-#             os.path.join(dataset_dir, "panoptic_{}".format(s)),
-#             os.path.join(dataset_dir, "panoptic_semseg_{}".format(s)),
-#             COCO_CATEGORIES,
-#         )
