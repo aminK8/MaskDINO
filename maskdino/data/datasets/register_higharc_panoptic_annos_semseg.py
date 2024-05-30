@@ -10,14 +10,8 @@ from maskdino.data.higharc_categories import HIGHARC_CATEGORIES
 
 _PREDEFINED_SPLITS_COCO_PANOPTIC = {
     "coco_2017_train_panoptic": (
-        # This is the original panoptic annotation directory
         "coco/panoptic_train2017",
         "coco/annotations/panoptic_train2017.json",
-        # This directory contains semantic annotations that are
-        # converted from panoptic annotations.
-        # It is used by PanopticFPN.
-        # You can use the script at detectron2/datasets/prepare_panoptic_fpn.py
-        # to create these directories.
         "coco/panoptic_semseg_train2017",
     ),
     "coco_2017_val_panoptic": (
