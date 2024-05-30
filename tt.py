@@ -36,7 +36,7 @@ def save_panoptic_segmentation(segmentation_masks, output_path):
     cv2.imwrite(output_path, segmentation_masks)
 
 
-key_path = "test"
+key_path = "valid"
 base_url = "../../dataset/seg_object_detection/auto_translate_v4-3"
 # Directory containing images
 image_dir = os.path.join(base_url, '{}'.format(key_path))
