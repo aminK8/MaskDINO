@@ -119,7 +119,7 @@ mscoco_category2name = {
 }
 
 if __name__ == "__main__":
-    dataset_dir = '~/dataset/seg_object_detection/auto_translate_v4-3'
+    dataset_dir = '../../dataset/seg_object_detection/auto_translate_v4-3'
     # dataset_dir = '/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation'
     for s in ["train", "test", "valid"]:
         separate_coco_semantic_from_panoptic(
