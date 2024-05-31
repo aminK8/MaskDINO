@@ -127,6 +127,9 @@ class Trainer(DefaultTrainer):
         if output_folder is None:
             output_folder = os.path.join(cfg.OUTPUT_DIR, "inference")
         evaluator_list = []
+        print("==============================")
+        print(f"dataset_name: {dataset_name}")
+        print("==============================")
         evaluator_type = MetadataCatalog.get(dataset_name).evaluator_type
         # semantic segmentation
         if evaluator_type in ["sem_seg", "ade20k_panoptic_seg"]:
