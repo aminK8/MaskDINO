@@ -41,7 +41,7 @@ def separate_coco_semantic_from_panoptic(panoptic_json, panoptic_root, sem_seg_r
             "isthing": 0 or 1
     """
     os.makedirs(sem_seg_root, exist_ok=True)
-    os.makedirs(panoptic_root, exist_ok=True)
+    # os.makedirs(panoptic_root, exist_ok=True)
 
     id_map = {}  # map from category id to id in the output semantic annotation
     assert len(categories) <= 42
@@ -124,7 +124,7 @@ if __name__ == "__main__":
     for s in ["train", "test", "valid"]:
         separate_coco_semantic_from_panoptic(
             os.path.join(dataset_dir, "{}/_panoptic_annotations.coco.json".format(s)),
-            os.path.join(dataset_dir, "panoptic_{}".format(s)),
+            os.path.join(dataset_dir, s),
             os.path.join(dataset_dir, "panoptic_semseg_{}".format(s)),
             mscoco_category2name,
         )
