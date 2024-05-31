@@ -132,7 +132,7 @@ def register_all_coco_panoptic_annos_sem_seg(root):
             os.path.join(root, panoptic_root),
             os.path.join(root, panoptic_json),
             os.path.join(root, panoptic_root),
-            os.path.join(root, panoptic_json),
+            os.path.join(root, image_root, "_annotations.coco.json"),
         )
 
 

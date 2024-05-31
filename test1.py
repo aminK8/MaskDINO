@@ -11,6 +11,7 @@ def convert_coco_to_panoptic(coco_json):
     panoptic_annotations = []
     for image_info in coco_json['images']:
         panoptic_annotation = {
+            'id': image_info['id'],
             "file_name": image_info['file_name'],
             "image_id": image_info['id'],
             "segments_info": []
