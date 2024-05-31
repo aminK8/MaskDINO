@@ -97,8 +97,9 @@ def register_coco_panoptic_annos_sem_seg(
         panoptic_name,
         lambda: load_coco_panoptic_json(panoptic_json, image_root, panoptic_root, sem_seg_root, metadata),
     )
+    print(f"metadata is {metadata}")
     MetadataCatalog.get(panoptic_name).set(
-       metadata
+       **metadata
     )
 
     semantic_name = name + "_with_sem_seg"
