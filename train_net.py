@@ -46,6 +46,7 @@ from detectron2.utils.logger import setup_logger
 from maskdino import (
     COCOInstanceNewBaselineDatasetMapper,
     COCOPanopticNewBaselineDatasetMapper,
+    COCOHigharcPanopticNewBaselineDatasetMapper,
     InstanceSegEvaluator,
     MaskFormerSemanticDatasetMapper,
     SemanticSegmentorWithTTA,
@@ -213,6 +214,9 @@ class Trainer(DefaultTrainer):
         # Semantic segmentation dataset mapper
         elif cfg.INPUT.DATASET_MAPPER_NAME == "mask_former_semantic":
             mapper = MaskFormerSemanticDatasetMapper(cfg, True)
+            return build_detection_train_loader(cfg, mapper=mapper)
+        elif cfg.INPUT.DATASET_MAPPER_NAME == "coco_panoptic_lsj_higharch":
+            mapper = COCOHigharcPanopticNewBaselineDatasetMapper(cfg, True)
             return build_detection_train_loader(cfg, mapper=mapper)
         else:
             mapper = None

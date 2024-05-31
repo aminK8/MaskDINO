@@ -9,15 +9,15 @@ from maskdino.data.higharc_categories import HIGHARC_CATEGORIES
 
 
 _PREDEFINED_SPLITS_COCO_PANOPTIC = {
-    "coco_2017_train_panoptic": (
-        "coco/panoptic_train2017",
-        "coco/annotations/panoptic_train2017.json",
-        "coco/panoptic_semseg_train2017",
+    "train_panoptic": (
+        "train",
+        "train/_panoptic_annotations.coco.json",
+        "panoptic_masks/train",
     ),
-    "coco_2017_val_panoptic": (
-        "coco/panoptic_val2017",
-        "coco/annotations/panoptic_val2017.json",
-        "coco/panoptic_semseg_val2017",
+    "val_panoptic": (
+        "valid",
+        "valid/_panoptic_annotations.coco.json",
+        "panoptic_masks/valid",
     ),
 }
 
@@ -171,5 +171,5 @@ def register_all_coco_panoptic_annos_sem_seg(root):
         )
 
 
-_root = os.getenv("DETECTRON2_DATASETS", "datasets")
+_root = "/home/ubuntu/dataset/seg_object_detection/auto_translate_v4-3"
 register_all_coco_panoptic_annos_sem_seg(_root)

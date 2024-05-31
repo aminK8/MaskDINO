@@ -362,3 +362,8 @@ Many thanks to these excellent opensource projects
 python demo.py --config-file ../configs/coco/instance-segmentation/maskdino_R50_bs16_50ep_3s.yaml \
   --input ~/dataset/seg_object_detection/auto_translate_v4-3/test/17_coco_png_jpg.rf.c5ed3e601de7cef3b7f7a0db4e04921c.jpg --output image_file_output --opts MODEL.WEIGHTS ~/MaskDino-ZOO/maskdino_r50_50ep_300q_hid2048_3sd1_instance_maskenhanced_mask46.3ap_box51.7ap.pth
 
+
+python train_net.py --eval-only --num-gpus 1 --config-file configs/coco/instance-segmentation/maskdino_R50_bs16_50ep_3s.yaml MODEL.WEIGHTS ~/MaskDino-ZOO/maskdino_r50_50ep_300q_hid2048_3sd1_instance_maskenhanced_mask46.3ap_box51.7ap.pth
+
+
+python train_net.py --num-gpus 1 --config-file config_path SOLVER.IMS_PER_BATCH SET_TO_SOME_REASONABLE_VALUE SOLVER.BASE_LR SET_TO_SOME_REASONABLE_VALUE
