@@ -90,7 +90,7 @@ def load_coco_panoptic_json(json_file, image_dir, panoptic_root, semseg_dir, met
 
 
 def register_coco_panoptic_annos_sem_seg(
-    name, metadata, image_root, panoptic_root, panoptic_json, sem_seg_root, instances_json, meta
+    name, metadata, image_root, panoptic_root, panoptic_json, sem_seg_root, instances_json
 ):
     panoptic_name = name
     DatasetCatalog.register(
@@ -98,7 +98,7 @@ def register_coco_panoptic_annos_sem_seg(
         lambda: load_coco_panoptic_json(panoptic_json, image_root, panoptic_root, sem_seg_root, metadata),
     )
     MetadataCatalog.get(panoptic_name).set(
-       meta
+       metadata
     )
 
     semantic_name = name + "_with_sem_seg"
