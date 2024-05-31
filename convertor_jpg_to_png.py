@@ -23,7 +23,7 @@ def convert_images(folder_path):
 folders = ["test", "train", "valid"]  # Add your folder names here
 
 base_url = "../../dataset/seg_object_detection/auto_translate_v4-3"
-base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation"
+# base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation"
 
 # Iterate through each folder and convert images
 for folder in folders:
