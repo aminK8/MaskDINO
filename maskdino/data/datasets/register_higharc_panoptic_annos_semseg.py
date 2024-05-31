@@ -76,6 +76,7 @@ def load_coco_panoptic_json(json_file, image_dir, panoptic_root, semseg_dir, met
         ret.append(
             {
                 "file_name": image_file,
+                "id": image_id,
                 "image_id": image_id,
                 "pan_seg_file_name": label_file,
                 "sem_seg_file_name": sem_label_file,
