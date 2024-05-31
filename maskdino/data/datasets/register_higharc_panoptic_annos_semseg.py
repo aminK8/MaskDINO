@@ -10,7 +10,7 @@ from maskdino.data.higharc_categories import HIGHARC_CATEGORIES
 
 _PREDEFINED_SPLITS_COCO_PANOPTIC = {
     "train_higharch_panoptic": (
-        "train"
+        "train",
         "panoptic_masks/train",
         "train/_panoptic_annotations.coco.json",
         "panoptic_semseg_train",
