@@ -10,14 +10,16 @@ from maskdino.data.higharc_categories import HIGHARC_CATEGORIES
 
 _PREDEFINED_SPLITS_COCO_PANOPTIC = {
     "train_higharch_panoptic": (
-        "train",
-        "train/_panoptic_annotations.coco.json",
+        "train"
         "panoptic_masks/train",
+        "train/_panoptic_annotations.coco.json",
+        "panoptic_semseg_train",
     ),
     "val_higharch_panoptic": (
         "valid",
+        "panoptic_masks/valid"
         "valid/_panoptic_annotations.coco.json",
-        "panoptic_masks/valid",
+        "panoptic_semseg_valid",
     ),
 }
 
@@ -44,16 +46,11 @@ def get_metadata():
     for i, cat in enumerate(HIGHARC_CATEGORIES):
         if cat["isthing"]:
             thing_dataset_id_to_contiguous_id[cat["id"]] = i
-            _thing_contiguous_id_to_dataset_id[i] = cat["id"]
         stuff_dataset_id_to_contiguous_id[cat["id"]] = i
-        _stuff_contiguous_id_to_dataset_id[i] = cat["id"]
 
     meta["thing_dataset_id_to_contiguous_id"] = thing_dataset_id_to_contiguous_id
     meta["stuff_dataset_id_to_contiguous_id"] = stuff_dataset_id_to_contiguous_id
     
-    meta["_thing_contiguous_id_to_dataset_id"] = _thing_contiguous_id_to_dataset_id
-    meta["_stuff_contiguous_id_to_dataset_id"] = _stuff_contiguous_id_to_dataset_id
-
     return meta
 
 
@@ -98,8 +95,7 @@ def load_coco_panoptic_json(json_file, image_dir, panoptic_root, semseg_dir, met
     return ret
 
 
-def register_coco_panoptic_annos_sem_seg(
-    name, metadata, image_root, panoptic_root, panoptic_json, sem_seg_root, instances_json
+def register_coco_panoptic_annos_sem_seg(name, metadata, image_root, panoptic_root, panoptic_json, sem_seg_root, instances_json
 ):
     panoptic_name = name
     DatasetCatalog.register(
@@ -133,16 +129,16 @@ def register_coco_panoptic_annos_sem_seg(
 def register_all_coco_panoptic_annos_sem_seg(root):
     for (
         prefix,
-        (image_root, panoptic_json, panoptic_root),
+        (image_root, panoptic_root, panoptic_json, semantic_root),
     ) in _PREDEFINED_SPLITS_COCO_PANOPTIC.items():
         register_coco_panoptic_annos_sem_seg(
-            prefix,
-            get_metadata(),
-            os.path.join(root, image_root),
-            os.path.join(root, panoptic_root),
-            os.path.join(root, panoptic_json),
-            os.path.join(root, panoptic_root),
-            os.path.join(root, image_root, "_annotations.coco.json"),
+            name=prefix,
+            metadata=get_metadata(),
+            image_root=os.path.join(root, image_root),
+            panoptic_root=os.path.join(root, panoptic_root),
+            panoptic_json=os.path.join(root, panoptic_json),
+            sem_seg_root=os.path.join(root, semantic_root),
+            instances_json=os.path.join(root, image_root, "_annotations.coco.json"),
         )
 
 
