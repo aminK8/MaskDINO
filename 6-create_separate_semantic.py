@@ -120,7 +120,7 @@ def separate_coco_semantic_from_panoptic(panoptic_json, panoptic_root, sem_seg_r
 
 if __name__ == "__main__":
     # dataset_dir = os.path.join(os.getenv("DETECTRON2_DATASETS", "datasets"), "coco")
-    dataset_dir = "~/dataset/seg_object_detection/auto_translate_v4-3"
+    dataset_dir = "../../dataset/seg_object_detection/auto_translate_v4-3"
     # dataset_dir = '/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation'
     for s in ["valid", "test", "train"]:
         separate_coco_semantic_from_panoptic(
