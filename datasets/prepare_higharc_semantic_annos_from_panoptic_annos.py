@@ -18,6 +18,7 @@ from detectron2.data.datasets.builtin_meta import COCO_CATEGORIES
 def _process_panoptic_to_semantic(input_panoptic, output_semantic, segments, id_map):
     panoptic = np.asarray(Image.open(input_panoptic), dtype=np.uint32)
     panoptic = rgb2id(panoptic)
+    print(panoptic.max())
     output = np.zeros_like(panoptic, dtype=np.uint8) + 255
     for seg in segments:
         cat_id = seg["category_id"]
