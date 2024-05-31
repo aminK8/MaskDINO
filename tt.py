@@ -102,7 +102,7 @@ for key_path in ["valid", "test", "train"]:
     for image_info in annotations['images']:
         filename = image_info['file_name']
         image_path = os.path.join(image_dir, filename)
-        output_path = os.path.join(output_dir, filename.replace('.jpg', '_panoptic.png'))
+        output_path = os.path.join(output_dir, filename.replace('.jpg', '_panoptic.jpg'))
 
         # Load the image
         image = cv2.imread(image_path)
