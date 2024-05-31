@@ -60,14 +60,14 @@ def generate_segmentation_masks(annotations, image_shape, image_info):
         if annotation['image_id'] == image_info['id']:
             category_id = annotation['category_id']
             category_color = next(cat['color'] for cat in HIGHARC_CATEGORIES if cat['id'] == category_id)
-            segmentation_mask = np.zeros((image_shape[0], image_shape[1], 3), dtype=np.uint8)
+            segmentation_mask = np.zeros((image_shape[0], image_shape[1], 1), dtype=np.uint8)
             segmentations = annotation['segmentation']
             # Convert segmentation to polygon format if necessary
             # (depending on the format of segmentation in your COCO annotations)
             # Then fill the polygon to generate the mask
             for segmentation in segmentations:
                 pts = np.array(segmentation).reshape((-1, 1, 2)).astype(np.int32)
-                cv2.fillPoly(segmentation_mask, [pts], category_color)
+                cv2.fillPoly(segmentation_mask, [pts], category_id)
             # Add the mask to the overall segmentation masks
             segmentation_masks = np.maximum(segmentation_masks, segmentation_mask)
 
