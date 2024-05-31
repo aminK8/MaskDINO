@@ -34,8 +34,8 @@ def convert_coco_to_panoptic(coco_json):
 
 
 for t in ["test", "valid", "train"]:
-    # base_path = '/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/{}/'
-    base_path = "../../dataset/seg_object_detection/auto_translate_v4-3/{}/"
+    base_path = '/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/{}/'
+    # base_path = "../../dataset/seg_object_detection/auto_translate_v4-3/{}/"
     
     
     anno_file = os.path.join(base_path, "_annotations.coco.json").format(t)

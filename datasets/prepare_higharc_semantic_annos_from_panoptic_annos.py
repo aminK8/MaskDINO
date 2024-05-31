@@ -41,9 +41,10 @@ def separate_coco_semantic_from_panoptic(panoptic_json, panoptic_root, sem_seg_r
             "isthing": 0 or 1
     """
     os.makedirs(sem_seg_root, exist_ok=True)
+    os.makedirs(panoptic_root, exist_ok=True)
 
     id_map = {}  # map from category id to id in the output semantic annotation
-    assert len(categories) <= 254
+    assert len(categories) <= 42
     for i, k in enumerate(categories):
         id_map[k] = i
     # what is id = 0?
@@ -57,8 +58,8 @@ def separate_coco_semantic_from_panoptic(panoptic_json, panoptic_root, sem_seg_r
 
     def iter_annotations():
         for anno in obj["annotations"]:
-            file_name = obj['images'][anno['image_id']]["file_name"]
-            segments = anno["segmentation"]
+            file_name = anno["file_name"]
+            segments = anno["segments_info"]
             input = os.path.join(panoptic_root, file_name)
             output = os.path.join(sem_seg_root, file_name)
             yield input, output, segments
@@ -75,6 +76,7 @@ def separate_coco_semantic_from_panoptic(panoptic_json, panoptic_root, sem_seg_r
 
 
 mscoco_category2name = {
+    0: "none",
     1: "bath",
     2: "bed_closet",
     3: "bed_pass",
@@ -122,7 +124,7 @@ if __name__ == "__main__":
     for s in ["train", "test", "valid"]:
         separate_coco_semantic_from_panoptic(
             os.path.join(dataset_dir, "{}/_panoptic_annotations.coco.json".format(s)),
-            os.path.join(dataset_dir, "panoptic_masks/{}".format(s)),
-            os.path.join(dataset_dir, "panoptic_stuff/{}".format(s)),
+            os.path.join(dataset_dir, "panoptic_{}".format(s)),
+            os.path.join(dataset_dir, "panoptic_semseg_{}".format(s)),
             mscoco_category2name,
         )
