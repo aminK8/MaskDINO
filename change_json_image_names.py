@@ -5,7 +5,7 @@ import json
 files_name = ["test", "valid", "train"]  # Add your folder names here
 
 base_url = "../../dataset/seg_object_detection/auto_translate_v4-3/{}/_annotations.coco.json"
-base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/{}/_annotations.coco.json"
+# base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/{}/_annotations.coco.json"
 
 
 for file_name in files_name:
@@ -26,7 +26,7 @@ for file_name in files_name:
             
             
 base_url = "../../dataset/seg_object_detection/auto_translate_v4-3/{}/_panoptic_annotations.coco.json"
-base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/{}/_panoptic_annotations.coco.json"
+# base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/{}/_panoptic_annotations.coco.json"
     
 
 for file_name in files_name:
