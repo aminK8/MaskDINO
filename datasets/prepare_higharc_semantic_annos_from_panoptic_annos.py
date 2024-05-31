@@ -124,7 +124,7 @@ if __name__ == "__main__":
     for s in ["train", "test", "valid"]:
         separate_coco_semantic_from_panoptic(
             os.path.join(dataset_dir, "{}/_panoptic_annotations.coco.json".format(s)),
-            os.path.join(dataset_dir, s),
+            os.path.join(dataset_dir, "panoptic_masks/{}".format(s)),
             os.path.join(dataset_dir, "panoptic_semseg_{}".format(s)),
             mscoco_category2name,
         )
