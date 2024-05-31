@@ -117,12 +117,12 @@ mscoco_category2name = {
 }
 
 if __name__ == "__main__":
-    # dataset_dir = '~/dataset/seg_object_detection/auto_translate_v4-3'
-    dataset_dir = '/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation'
+    dataset_dir = '~/dataset/seg_object_detection/auto_translate_v4-3'
+    # dataset_dir = '/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation'
     for s in ["train", "test", "valid"]:
         separate_coco_semantic_from_panoptic(
-            os.path.join(dataset_dir, "annotations/panoptic_{}.json".format(s)),
-            os.path.join(dataset_dir, "panoptic_{}".format(s)),
-            os.path.join(dataset_dir, "panoptic_semseg_{}".format(s)),
+            os.path.join(dataset_dir, "{}/_panoptic_annotations.coco.json".format(s)),
+            os.path.join(dataset_dir, "panoptic_masks/{}".format(s)),
+            os.path.join(dataset_dir, "panoptic_stuff/{}".format(s)),
             mscoco_category2name,
         )
