@@ -108,7 +108,8 @@ def register_coco_panoptic_annos_sem_seg(
     )
     # print(f"metadata is {metadata}")
     MetadataCatalog.get(panoptic_name).set(
-       **metadata
+       **metadata,
+       panoptic_json=panoptic_json,
     )
 
     semantic_name = name + "_with_sem_seg"
@@ -121,6 +122,7 @@ def register_coco_panoptic_annos_sem_seg(
         panoptic_root=panoptic_root,
         image_root=image_root,
         json_file=instances_json,
+        panoptic_json=panoptic_json,
         evaluator_type="coco_panoptic_seg",
         ignore_label=255,
         label_divisor=1000,
