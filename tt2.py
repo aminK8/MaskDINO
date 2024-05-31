@@ -10,7 +10,7 @@ def add_isthing_to_categories(json_file):
             if category['id'] < 30:
                 category['isthing'] = 1
             else:
-                category['isthing'] = 1
+                category['isthing'] = 0
         
         with open(json_file, 'w') as f:
             json.dump(data, f, indent=4)
