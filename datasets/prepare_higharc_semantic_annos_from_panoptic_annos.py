@@ -41,7 +41,6 @@ def separate_coco_semantic_from_panoptic(panoptic_json, panoptic_root, sem_seg_r
             "isthing": 0 or 1
     """
     os.makedirs(sem_seg_root, exist_ok=True)
-    # os.makedirs(panoptic_root, exist_ok=True)
 
     id_map = {}  # map from category id to id in the output semantic annotation
     assert len(categories) <= 42
@@ -60,7 +59,7 @@ def separate_coco_semantic_from_panoptic(panoptic_json, panoptic_root, sem_seg_r
         for anno in obj["annotations"]:
             file_name = anno["file_name"]
             segments = anno["segments_info"]
-            input = os.path.join(panoptic_root, file_name)
+            input = os.path.join(panoptic_root, file_name.replate(".jpg", ".png"))
             output = os.path.join(sem_seg_root, file_name)
             yield input, output, segments
 
