@@ -37,14 +37,22 @@ def get_metadata():
 
     thing_dataset_id_to_contiguous_id = {}
     stuff_dataset_id_to_contiguous_id = {}
+    
+    _stuff_contiguous_id_to_dataset_id = {}
+    _thing_contiguous_id_to_dataset_id = {}
 
     for i, cat in enumerate(HIGHARC_CATEGORIES):
         if cat["isthing"]:
             thing_dataset_id_to_contiguous_id[cat["id"]] = i
+            _thing_contiguous_id_to_dataset_id[i] = cat["id"]
         stuff_dataset_id_to_contiguous_id[cat["id"]] = i
+        _stuff_contiguous_id_to_dataset_id[i] = cat["id"]
 
     meta["thing_dataset_id_to_contiguous_id"] = thing_dataset_id_to_contiguous_id
     meta["stuff_dataset_id_to_contiguous_id"] = stuff_dataset_id_to_contiguous_id
+    
+    meta["_thing_contiguous_id_to_dataset_id"] = _thing_contiguous_id_to_dataset_id
+    meta["_stuff_contiguous_id_to_dataset_id"] = _stuff_contiguous_id_to_dataset_id
 
     return meta
 
