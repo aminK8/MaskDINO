@@ -366,4 +366,4 @@ python demo.py --config-file ../configs/coco/instance-segmentation/maskdino_R50_
 python train_net.py --eval-only --num-gpus 1 --config-file configs/coco/instance-segmentation/maskdino_R50_bs16_50ep_3s.yaml MODEL.WEIGHTS ~/MaskDino-ZOO/maskdino_r50_50ep_300q_hid2048_3sd1_instance_maskenhanced_mask46.3ap_box51.7ap.pth
 
 
-python train_net.py --num-gpus 1 --config-file config_path SOLVER.IMS_PER_BATCH SET_TO_SOME_REASONABLE_VALUE SOLVER.BASE_LR SET_TO_SOME_REASONABLE_VALUE
+python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml MODEL.WEIGHTS ~/MaskDino-ZOO/maskdino_r50_50ep_300q_hid2048_3sd1_instance_maskenhanced_mask46.3ap_box51.7ap.pth

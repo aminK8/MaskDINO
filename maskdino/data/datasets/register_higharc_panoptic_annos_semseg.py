@@ -157,6 +157,13 @@ def register_all_coco_panoptic_annos_sem_seg(root):
         (panoptic_root, panoptic_json, semantic_root),
     ) in _PREDEFINED_SPLITS_COCO_PANOPTIC.items():
         prefix_instances = prefix[: -len("_panoptic")]
+        
+        print(f"prefix: {prefix}")
+        print(f"prefix_instances: {prefix_instances}")
+        print(f"panoptic_root: {panoptic_root}")
+        print(f"panoptic_json: {panoptic_json}")
+        print(f"semantic_root: {semantic_root}")
+        
         instances_meta = MetadataCatalog.get(prefix_instances)
         image_root, instances_json = instances_meta.image_root, instances_meta.json_file
 
