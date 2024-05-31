@@ -59,7 +59,7 @@ def separate_coco_semantic_from_panoptic(panoptic_json, panoptic_root, sem_seg_r
         for anno in obj["annotations"]:
             file_name = anno["file_name"]
             segments = anno["segments_info"]
-            input = os.path.join(panoptic_root, file_name.replate(".jpg", ".png"))
+            input = os.path.join(panoptic_root, file_name.replace(".jpg", ".png"))
             output = os.path.join(sem_seg_root, file_name)
             yield input, output, segments
 
