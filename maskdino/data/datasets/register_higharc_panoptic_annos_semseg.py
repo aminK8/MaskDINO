@@ -17,7 +17,7 @@ _PREDEFINED_SPLITS_COCO_PANOPTIC = {
     ),
     "val_higharch_panoptic": (
         "valid",
-        "panoptic_masks/valid"
+        "panoptic_masks/valid",
         "valid/_panoptic_annotations.coco.json",
         "panoptic_semseg_valid",
     ),
