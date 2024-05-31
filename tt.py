@@ -38,7 +38,7 @@ def save_panoptic_segmentation(segmentation_masks, output_path):
 for key_path in ["valid", "test", "train"]:
     print(f"key is {key_path}")
     base_url = "../../dataset/seg_object_detection/auto_translate_v4-3"
-    base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation"
+    # base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation"
     # Directory containing images
     image_dir = os.path.join(base_url, '{}'.format(key_path))
 
