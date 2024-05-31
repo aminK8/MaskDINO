@@ -9,12 +9,12 @@ from maskdino.data.higharc_categories import HIGHARC_CATEGORIES
 
 
 _PREDEFINED_SPLITS_COCO_PANOPTIC = {
-    "train_panoptic": (
+    "train_higharch_panoptic": (
         "train",
         "train/_panoptic_annotations.coco.json",
         "panoptic_masks/train",
     ),
-    "val_panoptic": (
+    "val_higharch_panoptic": (
         "valid",
         "valid/_panoptic_annotations.coco.json",
         "panoptic_masks/valid",
@@ -149,7 +149,9 @@ def register_coco_panoptic_annos_sem_seg(
         label_divisor=1000,
         **metadata,
     )
-
+    
+def higharch_dataset_function():
+    pass
 
 def register_all_coco_panoptic_annos_sem_seg(root):
     for (
@@ -157,24 +159,23 @@ def register_all_coco_panoptic_annos_sem_seg(root):
         (panoptic_root, panoptic_json, semantic_root),
     ) in _PREDEFINED_SPLITS_COCO_PANOPTIC.items():
         prefix_instances = prefix[: -len("_panoptic")]
-        
         print(f"prefix: {prefix}")
         print(f"prefix_instances: {prefix_instances}")
         print(f"panoptic_root: {panoptic_root}")
         print(f"panoptic_json: {panoptic_json}")
         print(f"semantic_root: {semantic_root}")
         
-        instances_meta = MetadataCatalog.get(prefix_instances)
-        image_root, instances_json = instances_meta.image_root, instances_meta.json_file
+        # instances_meta = MetadataCatalog.get(prefix_instances)
+        # image_root, instances_json = instances_meta.image_root, instances_meta.json_file
 
         register_coco_panoptic_annos_sem_seg(
             prefix,
             get_metadata(),
-            image_root,
+            root,
             os.path.join(root, panoptic_root),
             os.path.join(root, panoptic_json),
             os.path.join(root, semantic_root),
-            instances_json,
+            panoptic_json,
         )
 
 
