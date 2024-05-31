@@ -78,8 +78,8 @@ def save_panoptic_segmentation(segmentation_masks, output_path):
     cv2.imwrite(output_path, segmentation_masks)
 
 for key_path in ["valid", "test", "train"]:
-    base_url = "../../dataset/seg_object_detection/auto_translate_v4-3"
-    # base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation"
+    # base_url = "../../dataset/seg_object_detection/auto_translate_v4-3"
+    base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation"
     # Directory containing images
     image_dir = os.path.join(base_url, '{}'.format(key_path))
 
@@ -102,7 +102,7 @@ for key_path in ["valid", "test", "train"]:
     for image_info in annotations['images']:
         filename = image_info['file_name']
         image_path = os.path.join(image_dir, filename)
-        output_path = os.path.join(output_dir, filename.replace('.jpg', '_panoptic.jpg'))
+        output_path = os.path.join(output_dir, filename)
 
         # Load the image
         image = cv2.imread(image_path)
