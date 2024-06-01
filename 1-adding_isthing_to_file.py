@@ -22,7 +22,7 @@ def add_isthing_to_categories(json_file):
             "supercategory": "none",
             "isthing": 0
         })
-    data['categories']
+    data['categories'] = categories
 
 def process_json_files_in_directory(json_file):
     add_isthing_to_categories(json_file)
