@@ -42,7 +42,7 @@ base_url = ""
 
 if labeled:
     key_paths = ["valid", "test", "train"]
-    # base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation{}/"
+    # base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/"
     base_url = "../../dataset/seg_object_detection/auto_translate_v4-3/"
     
 else:
