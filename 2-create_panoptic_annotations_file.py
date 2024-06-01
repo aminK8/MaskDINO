@@ -3,8 +3,15 @@ import os
 
 def convert_coco_to_panoptic(coco_json):
     res = dict()
-    res['info'] = coco_json['info']
-    res['licenses'] = coco_json['licenses']
+    if 'info' in coco_json:
+        res['info'] = coco_json['info']
+    else:
+        res['info'] = []
+        
+    if 'licenses' in coco_json:
+        res['licenses'] = coco_json['licenses']
+    else:
+        res['licenses'] = []
     res['categories'] = coco_json['categories']
     res['images'] = coco_json['images']
 
@@ -53,7 +60,6 @@ for t in key_paths:
     # Load the JSON file
     with open(anno_file, 'r') as f:
         coco_json = json.load(f)
-        
         
     panoptic_json = convert_coco_to_panoptic(coco_json)
 
