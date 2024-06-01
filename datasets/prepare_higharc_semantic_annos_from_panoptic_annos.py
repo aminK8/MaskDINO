@@ -118,12 +118,23 @@ mscoco_category2name = {
 }
 
 if __name__ == "__main__":
-    dataset_dir = '../../dataset/seg_object_detection/auto_translate_v4-3'
-    # dataset_dir = '/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation'
-    for s in ["train", "test", "valid"]:
+    labeled = False
+    key_paths = []
+    base_url = ""
+
+    if labeled:
+        key_paths = ["valid", "test", "train"]
+        # base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/"
+        base_url = "../../dataset/seg_object_detection/auto_translate_v4-3"
+        
+    else:
+        key_paths = ['floorplans']
+        base_url = "../../dataset/data_pulte/pulte"
+
+    for key_path in key_paths: 
         separate_coco_semantic_from_panoptic(
-            os.path.join(dataset_dir, "{}/_panoptic_annotations.coco.json".format(s)),
-            os.path.join(dataset_dir, "panoptic_masks/{}".format(s)),
-            os.path.join(dataset_dir, "panoptic_semseg_{}".format(s)),
+            os.path.join(base_url, "{}/_panoptic_annotations.coco.json".format(key_path)),
+            os.path.join(base_url, "panoptic_masks/{}".format(key_path)),
+            os.path.join(base_url, "panoptic_semseg_{}".format(key_path)),
             mscoco_category2name,
         )
