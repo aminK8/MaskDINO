@@ -7,11 +7,10 @@ def add_isthing_to_categories(json_file):
         
     if 'categories' in data:
         for category in data['categories']:
-            category['isthing'] = 1
-            # if category['id'] != 39:
-            #     category['isthing'] = 1
-            # else:
-            #     category['isthing'] = 0
+            if category['id'] != 0:
+                category['isthing'] = 1
+            else:
+                category['isthing'] = 0
                 
         # categories = data['categories']
         # categories.append({
