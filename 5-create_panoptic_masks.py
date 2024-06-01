@@ -51,8 +51,9 @@ else:
 
 for key_path in key_paths:   
     print(f"key is {key_path}")
+    print(f"base_url is {base_url}")
     image_dir = os.path.join(base_url, '{}'.format(key_path))
-
+    print(f"image_dir is {image_dir}")
     # Path to the annotations file
     annotations_path = '_annotations.coco.json'
 
