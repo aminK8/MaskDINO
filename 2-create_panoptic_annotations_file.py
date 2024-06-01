@@ -5,12 +5,7 @@ def convert_coco_to_panoptic(coco_json):
     res = dict()
     res['info'] = coco_json['info']
     res['licenses'] = coco_json['licenses']
-    res['categories'] = coco_json['categories'].append({
-            "id": 40,
-            "name": "none",
-            "supercategory": "none",
-            "isthing": 0
-        })
+    res['categories'] = coco_json['categories']
     res['images'] = coco_json['images']
 
     panoptic_annotations = []
