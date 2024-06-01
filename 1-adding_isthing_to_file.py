@@ -11,18 +11,18 @@ def add_isthing_to_categories(json_file):
                 category['isthing'] = 1
             else:
                 category['isthing'] = 0
+                
+        categories = data['categories']
+        categories.append({
+                "id": 40,
+                "name": "none",
+                "supercategory": "none",
+                "isthing": 0
+            })
+        data['categories'] = categories
         
         with open(json_file, 'w') as f:
             json.dump(data, f, indent=4)
-            
-    categories = data['categories']
-    categories.append({
-            "id": 40,
-            "name": "none",
-            "supercategory": "none",
-            "isthing": 0
-        })
-    data['categories'] = categories
 
 def process_json_files_in_directory(json_file):
     add_isthing_to_categories(json_file)
