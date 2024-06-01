@@ -1,50 +1,50 @@
-import os
-import cv2
-import numpy as np
-import json
-from PIL import Image
-from panopticapi.utils import rgb2id
-import matplotlib.pyplot as plt
+# import os
+# import cv2
+# import numpy as np
+# import json
+# from PIL import Image
+# from panopticapi.utils import rgb2id
+# import matplotlib.pyplot as plt
 
 
-segmentation = [
-                [
-                    377.92,
-                    385.16,
-                    404.96,
-                    385.16,
-                    404.96,
-                    346.28,
-                    363.52,
-                    346.28,
-                    363.52,
-                    373,
-                    377.92,
-                    373,
-                    377.92,
-                    385.16
-                ]
-            ]
+# segmentation = [
+#                 [
+#                     377.92,
+#                     385.16,
+#                     404.96,
+#                     385.16,
+#                     404.96,
+#                     346.28,
+#                     363.52,
+#                     346.28,
+#                     363.52,
+#                     373,
+#                     377.92,
+#                     373,
+#                     377.92,
+#                     385.16
+#                 ]
+#             ]
 
 
-panoptic = np.asarray(Image.open('/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/panoptic_masks/train/59_coco_png_jpg.rf.fb031620df625f57be6a25ad86d81f6c.png'), 
-                      dtype=np.uint32)
-plt.imshow(panoptic)
+# panoptic = np.asarray(Image.open('/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/panoptic_masks/train/59_coco_png_jpg.rf.fb031620df625f57be6a25ad86d81f6c.png'), 
+#                       dtype=np.uint32)
+# plt.imshow(panoptic)
 
 
-panoptic_2 = rgb2id(panoptic)
+# panoptic_2 = rgb2id(panoptic)
 
 
-pts = np.array(segmentation).reshape((-1, 1, 2)).astype(np.int32)
-segmentation_mask = np.zeros((640, 640, 3), dtype=np.uint8)
+# pts = np.array(segmentation).reshape((-1, 1, 2)).astype(np.int32)
+# segmentation_mask = np.zeros((640, 640, 3), dtype=np.uint8)
 
-cv2.fillPoly(segmentation_mask, [pts], [30, 0, 0])
+# cv2.fillPoly(segmentation_mask, [pts], [30, 0, 0])
 
 
-output = np.zeros_like(panoptic, dtype=np.uint8) + 255
+# output = np.zeros_like(panoptic, dtype=np.uint8) + 255
 
-output[panoptic == seg["id"]] = new_cat_id
-print("amin")
+# output[panoptic == seg["id"]] = new_cat_id
+# print("amin")
 
 
 # import cv2
@@ -86,3 +86,23 @@ print("amin")
 #         break
 
 # cv2.destroyAllWindows()
+
+
+import json
+
+# Path to your JSON file
+json_file_path = '/Users/amin/Desktop/higharc/Datasets/unlabeled/data_pulte/pulte/_annotations.coco.json'
+
+# Load the JSON data
+with open(json_file_path, 'r') as file:
+    data = json.load(file)
+
+# Modify the file names in the 'images' list
+for annotation in data['annotations']:
+    annotation['segmentation'] = [annotation['segmentation']]
+
+# Save the updated JSON data back to the file
+with open(json_file_path, 'w') as file:
+    json.dump(data, file, indent=4)
+
+print("Segmentation updated and JSON saved successfully.")
