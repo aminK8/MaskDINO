@@ -40,5 +40,5 @@ HIGHARC_CATEGORIES = [
     {'color': [174, 255, 243], 'isthing': 1, 'id': 36, 'name': 'util_hall'},
     {'color': [45, 89, 255], 'isthing': 1, 'id': 37, 'name': 'walk'},
     {'color': [134, 134, 103], 'isthing': 1, 'id': 38, 'name': 'water_closet'},
-    {'color': [145, 148, 174], 'isthing': 0, 'id': 39, 'name': 'workshop'},
+    {'color': [145, 148, 174], 'isthing': 1, 'id': 39, 'name': 'workshop'},
 ]
