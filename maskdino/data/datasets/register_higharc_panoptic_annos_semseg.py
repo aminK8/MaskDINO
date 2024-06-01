@@ -44,7 +44,7 @@ def get_metadata():
     _thing_contiguous_id_to_dataset_id = {}
 
     for i, cat in enumerate(HIGHARC_CATEGORIES):
-        if cat["isthing"]:
+        if cat["isthing"] == 1:
             thing_dataset_id_to_contiguous_id[cat["id"]] = i
         stuff_dataset_id_to_contiguous_id[cat["id"]] = i
 
