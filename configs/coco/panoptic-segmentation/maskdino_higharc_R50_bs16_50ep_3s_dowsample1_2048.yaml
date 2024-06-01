@@ -49,8 +49,8 @@ MODEL:
     INITIALIZE_BOX_TYPE: 'no'
     PANO_BOX_LOSS: False
     TEST:
-      SEMANTIC_ON: True
-      INSTANCE_ON: True
+      SEMANTIC_ON: False
+      INSTANCE_ON: False
       PANOPTIC_ON: True
       OVERLAP_THRESHOLD: 0.8
       OBJECT_MASK_THRESHOLD: 0.25
