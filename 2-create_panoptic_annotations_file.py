@@ -5,7 +5,12 @@ def convert_coco_to_panoptic(coco_json):
     res = dict()
     res['info'] = coco_json['info']
     res['licenses'] = coco_json['licenses']
-    res['categories'] = coco_json['categories']
+    res['categories'] = coco_json['categories'].append({
+            "id": 40,
+            "name": "none",
+            "supercategory": "none",
+            "isthing": 0
+        })
     res['images'] = coco_json['images']
 
     panoptic_annotations = []
@@ -34,8 +39,8 @@ def convert_coco_to_panoptic(coco_json):
 
 
 for t in ["test", "valid", "train"]:
-    base_path = '/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/{}/'
-    # base_path = "../../dataset/seg_object_detection/auto_translate_v4-3/{}/"
+    # base_path = '/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/{}/'
+    base_path = "../../dataset/seg_object_detection/auto_translate_v4-3/{}/"
     
     
     anno_file = os.path.join(base_path, "_annotations.coco.json").format(t)
