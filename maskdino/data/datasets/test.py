@@ -1,7 +1,7 @@
 
 
 HIGHARC_CATEGORIES = [
-    # {'color': [250, 141, 255], 'isthing': 0, 'id': 0, 'name': 'architectural-plans-kBh5'},
+    {'color': [250, 141, 255], 'isthing': 1, 'id': 0, 'name': 'architectural-plans-kBh5'},
     {'color': [220, 20, 60], 'isthing': 1, 'id': 1, 'name': 'bath'},
     {'color': [119, 11, 32], 'isthing': 1, 'id': 2, 'name': 'bed_closet'}, 
     {'color': [0, 0, 142], 'isthing': 1, 'id': 3, 'name': 'bed_pass'},
@@ -41,4 +41,39 @@ HIGHARC_CATEGORIES = [
     {'color': [45, 89, 255], 'isthing': 1, 'id': 37, 'name': 'walk'},
     {'color': [134, 134, 103], 'isthing': 1, 'id': 38, 'name': 'water_closet'},
     {'color': [145, 148, 174], 'isthing': 1, 'id': 39, 'name': 'workshop'},
+    # {'color': [0, 114, 143], 'isthing': 0, 'id': 40, 'name': 'None'},
 ]
+
+
+
+
+meta = {}
+thing_classes = [k["name"] for k in HIGHARC_CATEGORIES if k["isthing"] == 1]
+thing_colors = [k["color"] for k in HIGHARC_CATEGORIES if k["isthing"] == 1]
+stuff_classes = [k["name"] for k in HIGHARC_CATEGORIES]
+stuff_colors = [k["color"] for k in HIGHARC_CATEGORIES]
+
+meta["thing_classes"] = thing_classes
+meta["thing_colors"] = thing_colors
+meta["stuff_classes"] = stuff_classes
+meta["stuff_colors"] = stuff_colors
+
+
+thing_dataset_id_to_contiguous_id = {}
+stuff_dataset_id_to_contiguous_id = {}
+
+for i, cat in enumerate(HIGHARC_CATEGORIES):
+    if cat["isthing"] == 1:
+        thing_dataset_id_to_contiguous_id[cat["id"]] = i
+    stuff_dataset_id_to_contiguous_id[cat["id"]] = i
+
+meta["thing_dataset_id_to_contiguous_id"] = thing_dataset_id_to_contiguous_id
+meta["stuff_dataset_id_to_contiguous_id"] = stuff_dataset_id_to_contiguous_id
+
+all_contiguous_ids = list(thing_dataset_id_to_contiguous_id.values())
+num_classes = len(all_contiguous_ids)
+print(min(all_contiguous_ids))
+print(max(all_contiguous_ids))
+print(num_classes - 1)
+assert min(all_contiguous_ids) == 0 and max(all_contiguous_ids) == num_classes - 1
+print("amin")
