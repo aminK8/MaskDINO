@@ -7,19 +7,19 @@ def add_isthing_to_categories(json_file):
         
     if 'categories' in data:
         for category in data['categories']:
-            if category['id'] != 0:
+            if category['id'] != 0 and category['id'] != 39:
                 category['isthing'] = 1
             else:
                 category['isthing'] = 0
                 
-        categories = data['categories']
-        categories.append({
-                "id": 40,
-                "name": "none",
-                "supercategory": "none",
-                "isthing": 0
-            })
-        data['categories'] = categories
+        # categories = data['categories']
+        # categories.append({
+        #         "id": 40,
+        #         "name": "none",
+        #         "supercategory": "none",
+        #         "isthing": 0
+        #     })
+        # data['categories'] = categories
         
         with open(json_file, 'w') as f:
             json.dump(data, f, indent=4)
