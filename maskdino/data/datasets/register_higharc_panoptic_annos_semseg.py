@@ -28,8 +28,8 @@ def get_metadata():
     meta = {}
     thing_classes = [k["name"] for k in HIGHARC_CATEGORIES if k["isthing"] == 1]
     thing_colors = [k["color"] for k in HIGHARC_CATEGORIES if k["isthing"] == 1]
-    stuff_classes = [k["name"] for k in HIGHARC_CATEGORIES]
-    stuff_colors = [k["color"] for k in HIGHARC_CATEGORIES]
+    stuff_classes = [k["name"] for k in HIGHARC_CATEGORIES if k["isthing"] == 0]
+    stuff_colors = [k["color"] for k in HIGHARC_CATEGORIES if k["isthing"] == 0]
 
     meta["thing_classes"] = thing_classes
     meta["thing_colors"] = thing_colors
@@ -43,7 +43,8 @@ def get_metadata():
     for i, cat in enumerate(HIGHARC_CATEGORIES):
         if cat["isthing"] == 1:
             thing_dataset_id_to_contiguous_id[cat["id"]] = i
-        stuff_dataset_id_to_contiguous_id[cat["id"]] = i
+        else:
+            stuff_dataset_id_to_contiguous_id[cat["id"]] = i
 
     meta["thing_dataset_id_to_contiguous_id"] = thing_dataset_id_to_contiguous_id
     meta["stuff_dataset_id_to_contiguous_id"] = stuff_dataset_id_to_contiguous_id
