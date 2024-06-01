@@ -33,12 +33,22 @@ def convert_coco_to_panoptic(coco_json):
     return res
 
 
-for t in ["test", "valid", "train"]:
-    # base_path = '/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/{}/'
-    base_path = "../../dataset/seg_object_detection/auto_translate_v4-3/{}/"
+
+labeled = False
+key_paths = []
+base_url = ""
+
+if labeled:
+    key_paths = ["valid", "test", "train"]
+    # base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation{}/"
+    base_url = "../../dataset/seg_object_detection/auto_translate_v4-3/{}/"
     
-    
-    anno_file = os.path.join(base_path, "_annotations.coco.json").format(t)
+else:
+    key_paths = ['floorplans']
+    base_url = "../../dataset/data_pulte/pulte/{}/"
+
+for t in key_paths:    
+    anno_file = os.path.join(base_url, "_annotations.coco.json").format(t)
     print(anno_file)
     # Load the JSON file
     with open(anno_file, 'r') as f:
@@ -48,6 +58,6 @@ for t in ["test", "valid", "train"]:
     panoptic_json = convert_coco_to_panoptic(coco_json)
 
     # Save to a JSON file
-    out_file = os.path.join(base_path, "_panoptic_annotations.coco.json").format(t)
+    out_file = os.path.join(base_url, "_panoptic_annotations.coco.json").format(t)
     with open(out_file, 'w') as f:
         json.dump(panoptic_json, f, indent=2)
