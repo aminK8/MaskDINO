@@ -368,6 +368,10 @@ python train_net.py --eval-only --num-gpus 1 --config-file configs/coco/instance
 
 python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml MODEL.WEIGHTS ~/MaskDino-ZOO/maskdino_r50_50ep_300q_hid2048_3sd1_instance_maskenhanced_mask46.3ap_box51.7ap.pth
 
+
+
 python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml MODEL.WEIGHTS ~/code/MaskDINO/output/model_0024999.pth
+[06/01 20:41:07 fvcore.common.checkpoint]: Saving checkpoint to ./output/model_0009999.pth
+
 
 python datasets/prepare_higharc_semantic_annos_from_panoptic_annos.py
