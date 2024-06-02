@@ -368,15 +368,27 @@ python train_net.py --eval-only --num-gpus 1 --config-file configs/coco/instance
 
 python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml MODEL.WEIGHTS ~/MaskDino-ZOO/maskdino_r50_50ep_300q_hid2048_3sd1_instance_maskenhanced_mask46.3ap_box51.7ap.pth
 
-
-
+## without ssl
 python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml MODEL.WEIGHTS ~/code/MaskDINO/output/model_0009999.pth
 
 [06/01 20:41:07 fvcore.common.checkpoint]: Saving checkpoint to ./output/model_0009999.pth
+[06/02 05:44:50 d2.evaluation.panoptic_evaluation]: Panoptic Evaluation Results:
+|        |   PQ   |   SQ   |   RQ   |  #categories  |
+|:------:|:------:|:------:|:------:|:-------------:|
+|  All   | 91.724 | 93.736 | 96.947 |      39       |
+| Things | 91.752 | 93.600 | 97.086 |      38       |
+| Stuff  | 90.674 | 98.917 | 91.667 |       1       |
+
+[06/02 05:44:50 d2.evaluation.testing]: copypaste: Task: panoptic_seg
+[06/02 05:44:50 d2.evaluation.testing]: copypaste: PQ,SQ,RQ,PQ_th,SQ_th,RQ_th,PQ_st,SQ_st,RQ_st
+[06/02 05:44:50 d2.evaluation.testing]: copypaste: 91.7245,93.7363,96.9474,91.7521,93.5999,97.0863,90.6742,98.9173,91.6667
+[06/02 05:44:50 d2.evaluation.testing]: copypaste: Task: sem_seg
+[06/02 05:44:50 d2.evaluation.testing]: copypaste: mIoU,fwIoU,mACC,pACC
+[06/02 05:44:50 d2.evaluation.testing]: copypaste: 95.1874,97.6016,97.8782,98.4278
 
 
 python datasets/prepare_higharc_semantic_annos_from_panoptic_annos.py
 
-
+## unlabel training 
 
 python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_pulte_R50_bs16_50ep_3s_dowsample1_2048.yaml MODEL.WEIGHTS ~/MaskDino-ZOO/maskdino_r50_50ep_300q_hid2048_3sd1_instance_maskenhanced_mask46.3ap_box51.7ap.pth
