@@ -8,4 +8,5 @@ from . import (
     register_higharc_panoptic_annos_semseg,
     register_ade20k_instance,
     register_mapillary_vistas_panoptic,
+    register_pulte_panoptic_annos_semseg,
 )

@@ -375,3 +375,7 @@ python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentatio
 
 
 python datasets/prepare_higharc_semantic_annos_from_panoptic_annos.py
+
+
+
+python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_pulte_R50_bs16_50ep_3s_dowsample1_2048.yaml MODEL.WEIGHTS ~/MaskDino-ZOO/maskdino_r50_50ep_300q_hid2048_3sd1_instance_maskenhanced_mask46.3ap_box51.7ap.pth
