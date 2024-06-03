@@ -395,5 +395,43 @@ python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentatio
 
 ## use pre-train for training
 
-python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml MODEL.WEIGHTS ~/code/MaskDINO/output_unlabeled_data/model_0034999.pth
+python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml MODEL.WEIGHTS ~/code/MaskDINO/output/model_0019999.pth
+
+32500
+|        |   PQ   |   SQ   |   RQ   |  #categories  |
+|:------:|:------:|:------:|:------:|:-------------:|
+|  All   | 92.077 | 93.977 | 96.918 |      39       |
+| Things | 92.005 | 93.851 | 96.942 |      38       |
+| Stuff  | 94.790 | 98.740 | 96.000 |       1       |
+
+copypaste: Task: panoptic_seg
+[06/03 17:46:22 d2.evaluation.testing]: copypaste: PQ,SQ,RQ,PQ_th,SQ_th,RQ_th,PQ_st,SQ_st,RQ_st
+[06/03 17:46:22 d2.evaluation.testing]: copypaste: 92.0765,93.9766,96.9180,92.0051,93.8512,96.9422,94.7902,98.7398,96.0000
+[06/03 17:46:22 d2.evaluation.testing]: copypaste: Task: sem_seg
+[06/03 17:46:22 d2.evaluation.testing]: copypaste: mIoU,fwIoU,mACC,pACC
+[06/03 17:46:22 d2.evaluation.testing]: copypaste: 95.5424,97.7305,98.0441,98.4890
+
+35000
+|        |   PQ   |   SQ   |   RQ    |  #categories  |
+|:------:|:------:|:------:|:-------:|:-------------:|
+|  All   | 92.366 | 94.185 | 96.996  |      39       |
+| Things | 92.184 | 94.051 | 96.917  |      38       |
+| Stuff  | 99.292 | 99.292 | 100.000 |       1       |
+
+ copypaste: Task: panoptic_seg
+[06/03 18:38:24 d2.evaluation.testing]: copypaste: PQ,SQ,RQ,PQ_th,SQ_th,RQ_th,PQ_st,SQ_st,RQ_st
+[06/03 18:38:24 d2.evaluation.testing]: copypaste: 92.3660,94.1849,96.9961,92.1837,94.0505,96.9171,99.2921,99.2921,100.0000
+[06/03 18:38:24 d2.evaluation.testing]: copypaste: Task: sem_seg
+[06/03 18:38:24 d2.evaluation.testing]: copypaste: mIoU,fwIoU,mACC,pACC
+[06/03 18:38:24 d2.evaluation.testing]: copypaste: 95.7446,97.8439,98.3251,98.5498
+
+
+
+## test
+
+python demo.py --config-file ../configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml \
+  --input ~/dataset/seg_object_detection/auto_translate_v4-3/test --output image_with_ssl --opts MODEL.WEIGHTS ../output_with_ssl/model_0034999.pth
+
+  python demo.py --config-file ../configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml \
+  --input ~/dataset/seg_object_detection/auto_translate_v4-3/test/17_coco_png_jpg.rf.c5ed3e601de7cef3b7f7a0db4e04921c.png ~/dataset/seg_object_detection/auto_translate_v4-3/test/52_coco_png_jpg.rf.21a92d79c0cefec933d53c99a88d4f85.png ~/dataset/seg_object_detection/auto_translate_v4-3/test/67_coco_png_jpg.rf.11946dddc70abc10ad39ffbec714b0da.png ~/dataset/seg_object_detection/auto_translate_v4-3/test/19_58_32_coco_png_jpg.rf.cbdc726e2b0be9754f00c319c7896f2f.png --output image_without_ssl --opts MODEL.WEIGHTS ../output_without_ssl/model_0034999.pth
 
