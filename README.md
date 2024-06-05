@@ -429,9 +429,16 @@ copypaste: Task: panoptic_seg
 
 ## test
 
-python demo.py --config-file ../configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml \
-  --input ~/dataset/seg_object_detection/auto_translate_v4-3/test --output image_with_ssl --opts MODEL.WEIGHTS ../output_with_ssl/model_0034999.pth
+python demo_1.py --config-file ../configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml \
+  --input ~/dataset/seg_object_detection/auto_translate_v4-3/valid --output image_with_ssl --opts MODEL.WEIGHTS ../output_with_ssl/model_0034999.pth
 
   python demo.py --config-file ../configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml \
   --input ~/dataset/seg_object_detection/auto_translate_v4-3/test/17_coco_png_jpg.rf.c5ed3e601de7cef3b7f7a0db4e04921c.png ~/dataset/seg_object_detection/auto_translate_v4-3/test/52_coco_png_jpg.rf.21a92d79c0cefec933d53c99a88d4f85.png ~/dataset/seg_object_detection/auto_translate_v4-3/test/67_coco_png_jpg.rf.11946dddc70abc10ad39ffbec714b0da.png ~/dataset/seg_object_detection/auto_translate_v4-3/test/19_58_32_coco_png_jpg.rf.cbdc726e2b0be9754f00c319c7896f2f.png --output image_without_ssl --opts MODEL.WEIGHTS ../output_without_ssl/model_0034999.pth
 
+  python demo_1.py --config-file ../configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml \
+  --input ~/dataset/seg_object_detection/auto_translate_v4-3/valid --output image_without_ssl --opts MODEL.WEIGHTS ../output_without_ssl/model_0034999.pth
+
+
+
+  python demo_1.py --config-file ../configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml \
+  --input ~/dataset/data_pulte/pulte/floorplans --output pulte_data_without_ssl_all --opts MODEL.WEIGHTS ../output_without_ssl/model_0034999.pth
