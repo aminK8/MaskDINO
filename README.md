@@ -441,4 +441,4 @@ python demo_1.py --config-file ../configs/coco/panoptic-segmentation/maskdino_hi
 
 
   python demo_1.py --config-file ../configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml \
-  --input ~/dataset/data_pulte/pulte/floorplans --output pulte_data_without_ssl_all --opts MODEL.WEIGHTS ../output_without_ssl/model_0034999.pth
+  --input ~/dataset/data_pulte/pulte/floorplans --output pulte_data_with_ssl_all_new --opts MODEL.WEIGHTS ../output_with_ssl/model_0034999.pth

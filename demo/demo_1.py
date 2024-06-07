@@ -3,8 +3,8 @@
 import argparse
 import glob
 import multiprocessing as mp
+import json
 import os
-
 # fmt: off
 import sys
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
@@ -29,6 +29,261 @@ from predictor import VisualizationDemo
 
 # constants
 WINDOW_NAME = "mask2former demo"
+
+coco_json = {
+    "info": {
+        "description": "Panoptic segmentation dataset",
+        "version": "1.0",
+        "year": 2024,
+        "contributor": "Your Name",
+        "date_created": "2024-06-07"
+    },
+    "licenses": [],
+    "images": [],
+    "annotations": [],
+    "categories": [
+        {
+            "id": 0,
+            "name": "architectural-plans-kBh5",
+            "supercategory": "none",
+            "isthing": 0
+        },
+        {
+            "id": 1,
+            "name": "bath",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 2,
+            "name": "bed_closet",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 3,
+            "name": "bed_pass",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 4,
+            "name": "bedroom",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 5,
+            "name": "chase",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 6,
+            "name": "closet",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 7,
+            "name": "dining",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 8,
+            "name": "entry",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 9,
+            "name": "fireplace",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 10,
+            "name": "flex",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 11,
+            "name": "foyer",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 12,
+            "name": "front_porch",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 13,
+            "name": "garage",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 14,
+            "name": "general",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 15,
+            "name": "hall",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 16,
+            "name": "hall_cased_opening",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 17,
+            "name": "kitchen",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 18,
+            "name": "laundry",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 19,
+            "name": "living",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 20,
+            "name": "master_bed",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 21,
+            "name": "master_closet",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 22,
+            "name": "master_hall",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 23,
+            "name": "master_vestibule",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 24,
+            "name": "mech",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 25,
+            "name": "mudroom",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 26,
+            "name": "office",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 27,
+            "name": "pantry",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 28,
+            "name": "patio",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 29,
+            "name": "portico",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 30,
+            "name": "powder",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 31,
+            "name": "reach_closet",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 32,
+            "name": "reading_nook",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 33,
+            "name": "rear_porch",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 34,
+            "name": "solarium",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 35,
+            "name": "stairs_editor",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 36,
+            "name": "util_hall",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 37,
+            "name": "walk",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 38,
+            "name": "water_closet",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        },
+        {
+            "id": 39,
+            "name": "workshop",
+            "supercategory": "architectural-plans-kBh5",
+            "isthing": 1
+        }
+    ],
+}
 
 
 def read_image(path, format="BGR"):
@@ -113,7 +368,7 @@ if __name__ == "__main__":
     cfg = setup_cfg(args)
 
     demo = VisualizationDemo(cfg)
-
+    annotation_id = 0
     if args.input:
         input_path = os.path.expanduser(args.input[0])
         if os.path.isdir(input_path):
@@ -121,12 +376,58 @@ if __name__ == "__main__":
         else:
             args.input = glob.glob(input_path)
         assert args.input, "The input path(s) was not found"
-        
+        idx = 0
         for path in tqdm.tqdm(args.input, disable=not args.output):
+            if path[-4:] == "json":
+                continue
             # use PIL, to be consistent with evaluation
             img = read_image(path, format="BGR")
+            height, width = img.shape[:2]
             start_time = time.time()
             predictions, visualized_output = demo.run_on_image(img)
+            panoptic_seg, segments_info = predictions['panoptic_seg']
+            panoptic_seg = panoptic_seg.cpu().detach().numpy()
+            
+            image_info = {
+                "file_name": os.path.basename(path),
+                "height": height,
+                "width": width,
+                "id": idx
+            }
+            idx += 1
+            coco_json['images'].append(image_info)
+            segments_info_data = []
+            unique_ids = np.unique(panoptic_seg)
+            for segment_id in unique_ids:
+                if segment_id == 0:
+                    continue  # Skip the 'nothing' category
+
+                mask = (panoptic_seg == segment_id).astype(np.uint8)
+                iscrowd = 0  # or 1, based on your context
+                area = int(np.sum(mask))
+
+                # Bounding box
+                y_indices, x_indices = np.where(mask)
+                bbox = [int(np.min(x_indices)), int(np.min(y_indices)), int(np.max(x_indices) - np.min(x_indices)), int(np.max(y_indices) - np.min(y_indices))]
+
+                contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+                segmentation = []
+                for contour in contours:
+                    contour = contour.flatten().tolist()
+                    segmentation.append(contour)
+                    
+                segment_info = {
+                    "id": int(segment_id),
+                    "category_id": int(segment_id),
+                    "area": area,
+                    "bbox": bbox,
+                    "segmentation": segmentation,
+                    "iscrowd": iscrowd
+                }
+                segments_info_data.append(segment_info)
+                annotation_id += 1
+            coco_json['annotations'].extend(segments_info_data)
+            
             logger.info(
                 "{}: {} in {:.2f}s".format(
                     path,
@@ -144,6 +445,8 @@ if __name__ == "__main__":
                     assert len(args.input) == 1, "Please specify a directory with args.output"
                     out_filename = args.output
                 visualized_output.save(out_filename)
+                with open("/home/ubuntu/code/MaskDINO/configs/coco/_annotation_file.json", 'w') as f:
+                    json.dump(coco_json, f, indent=4)
             else:
                 cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
                 cv2.imshow(WINDOW_NAME, visualized_output.get_image()[:, :, ::-1])
