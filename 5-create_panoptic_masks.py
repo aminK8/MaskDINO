@@ -56,9 +56,11 @@ for key_path in key_paths:
     print(f"image_dir is {image_dir}")
     # Path to the annotations file
     annotations_path = '_annotations.coco.json'
+    # annotations_path = '_annotation_pulte_maskdino_augmented_file.json'
 
     # Output directory for panoptic segmentation masks
     output_dir = os.path.join(base_url, "panoptic_masks")
+    # output_dir = os.path.join(base_url, "panoptic_masks_maskdino_augmented")
 
     # Create the output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)

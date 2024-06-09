@@ -33,4 +33,4 @@ else:
     base_url = "../../dataset/data_pulte/pulte"
 
 for key_path in key_paths:
-    process_json_files_in_directory(os.path.join(base_url, key_path, '_annotations.coco.json'))
+    process_json_files_in_directory(os.path.join(base_url, key_path, '_annotation_pulte_maskdino_augmented_file.json'))

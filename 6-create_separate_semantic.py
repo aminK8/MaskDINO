@@ -134,8 +134,11 @@ if __name__ == "__main__":
 
     for key_path in key_paths:   
         separate_coco_semantic_from_panoptic(
-            os.path.join(base_url, "{}/_panoptic_annotations.coco.json".format(key_path)),
-            os.path.join(base_url, "panoptic_masks/{}".format(key_path)),
-            os.path.join(base_url, "panoptic_stuff/{}".format(key_path)),
+            # os.path.join(base_url, "{}/_panoptic_annotations.coco.json".format(key_path)),
+            os.path.join(base_url, "{}/_panoptic_annotation_pulte_maskdino_augmented_file.json".format(key_path)),
+            # os.path.join(base_url, "panoptic_masks/{}".format(key_path)),
+            os.path.join(base_url, "panoptic_masks_maskdino_augmented/{}".format(key_path)),
+            # os.path.join(base_url, "panoptic_stuff/{}".format(key_path)),
+            os.path.join(base_url, "panoptic_stuff_maskdino_augmented/{}".format(key_path)),
             HIGHARC_CATEGORIES,
         )

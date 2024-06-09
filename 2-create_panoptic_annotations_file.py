@@ -55,7 +55,7 @@ else:
     base_url = "../../dataset/data_pulte/pulte/{}/"
 
 for t in key_paths:    
-    anno_file = os.path.join(base_url, "_annotations.coco.json").format(t)
+    anno_file = os.path.join(base_url, "_annotation_pulte_maskdino_augmented_file.json").format(t)
     print(anno_file)
     # Load the JSON file
     with open(anno_file, 'r') as f:
@@ -64,6 +64,6 @@ for t in key_paths:
     panoptic_json = convert_coco_to_panoptic(coco_json)
 
     # Save to a JSON file
-    out_file = os.path.join(base_url, "_panoptic_annotations.coco.json").format(t)
+    out_file = os.path.join(base_url, "_panoptic_annotation_pulte_maskdino_augmented_file.json").format(t)
     with open(out_file, 'w') as f:
         json.dump(panoptic_json, f, indent=2)

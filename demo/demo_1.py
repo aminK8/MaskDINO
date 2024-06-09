@@ -369,8 +369,12 @@ if __name__ == "__main__":
 
     demo = VisualizationDemo(cfg)
     annotation_id = 0
+    if not os.path.exists(args.output):
+        os.makedirs(args.output)
     if args.input:
+        print(args.input[0])
         input_path = os.path.expanduser(args.input[0])
+       
         if os.path.isdir(input_path):
             args.input = glob.glob(os.path.join(input_path, "*"))
         else:
@@ -396,7 +400,7 @@ if __name__ == "__main__":
             }
             idx += 1
             coco_json['images'].append(image_info)
-            segments_info_data = []
+            annotations_info = []
             unique_ids = np.unique(panoptic_seg)
             for segment_id in unique_ids:
                 if segment_id == 0:
@@ -416,17 +420,18 @@ if __name__ == "__main__":
                     contour = contour.flatten().tolist()
                     segmentation.append(contour)
                     
-                segment_info = {
-                    "id": int(segment_id),
+                annotation_info = {
+                    "id": annotation_id,
+                    'image_id': image_info['id'],
                     "category_id": int(segment_id),
                     "area": area,
                     "bbox": bbox,
                     "segmentation": segmentation,
                     "iscrowd": iscrowd
                 }
-                segments_info_data.append(segment_info)
+                annotations_info.append(annotation_info)
                 annotation_id += 1
-            coco_json['annotations'].extend(segments_info_data)
+            coco_json['annotations'].extend(annotations_info)
             
             logger.info(
                 "{}: {} in {:.2f}s".format(
@@ -445,8 +450,6 @@ if __name__ == "__main__":
                     assert len(args.input) == 1, "Please specify a directory with args.output"
                     out_filename = args.output
                 visualized_output.save(out_filename)
-                with open("/home/ubuntu/code/MaskDINO/configs/coco/_annotation_file.json", 'w') as f:
-                    json.dump(coco_json, f, indent=4)
             else:
                 cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
                 cv2.imshow(WINDOW_NAME, visualized_output.get_image()[:, :, ::-1])
@@ -506,3 +509,6 @@ if __name__ == "__main__":
             output_file.release()
         else:
             cv2.destroyAllWindows()
+
+    with open("/home/ubuntu/code/MaskDINO/configs/coco/_annotation_file.json", 'w') as f:
+        json.dump(coco_json, f, indent=4)
