@@ -8,18 +8,33 @@ from detectron2.utils.file_io import PathManager
 from maskdino.data.higharc_categories import HIGHARC_CATEGORIES
 
 
+# _PREDEFINED_SPLITS_COCO_PANOPTIC = {
+#     "train_higharch_pulte_panoptic": (
+#         "floorplans",
+#         "panoptic_masks/floorplans",
+#         "floorplans/_panoptic_annotations.coco.json",
+#         "panoptic_semseg_floorplans",
+#     ),
+#     "val_higharch_pulte_panoptic": (
+#         "floorplans",
+#         "panoptic_masks/floorplans",
+#         "floorplans/_panoptic_annotations.coco.json",
+#         "panoptic_semseg_floorplans",
+#     ),
+# }
+
 _PREDEFINED_SPLITS_COCO_PANOPTIC = {
     "train_higharch_pulte_panoptic": (
         "floorplans",
-        "panoptic_masks/floorplans",
-        "floorplans/_panoptic_annotations.coco.json",
-        "panoptic_semseg_floorplans",
+        "panoptic_masks_maskdino_augmented/floorplans",
+        "floorplans/_panoptic_annotation_pulte_maskdino_augmented_file.json",
+        "panoptic_semseg_maskdino_augmented_floorplans",
     ),
     "val_higharch_pulte_panoptic": (
         "floorplans",
-        "panoptic_masks/floorplans",
-        "floorplans/_panoptic_annotations.coco.json",
-        "panoptic_semseg_floorplans",
+        "panoptic_masks_maskdino_augmented/floorplans",
+        "floorplans/_panoptic_annotation_pulte_maskdino_augmented_file.json",
+        "panoptic_semseg_maskdino_augmented_floorplans",
     ),
 }
 
@@ -135,7 +150,8 @@ def register_all_coco_panoptic_annos_sem_seg(root):
             panoptic_root=os.path.join(root, panoptic_root),
             panoptic_json=os.path.join(root, panoptic_json),
             sem_seg_root=os.path.join(root, semantic_root),
-            instances_json=os.path.join(root, image_root, "_annotations.coco.json"),
+            instances_json=os.path.join(root, image_root, "annotation_pulte_maskdino_augmented_file.json")
+            # instances_json=os.path.join(root, image_root, "_annotations.coco.json"),
         )
 
 
