@@ -30,5 +30,5 @@ module load miniconda3
 source activate maskdino
 
 
- python demo_2.py --config-file ./configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml \
+ python demo/demo_2.py --config-file ./configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml \
   --input /fs/scratch/PAS0536/amin/MultiGen-20M/images/aesthetics_6_25_plus_3m --opts MODEL.WEIGHTS ../maskdino_r50_50ep_300q_hid2048_3sd1_panoptic_pq53.0.pth
