@@ -21,7 +21,7 @@ _ext
 build/
 dist/
 wheels/
-
+*DS_Store
 # pytorch/python/numpy formats
 *.pth
 *.pkl
@@ -51,3 +51,5 @@ _darcs
 /projects/*/datasets
 /models
 /snippet
+.DS_Store
+demo/.DS_Store
