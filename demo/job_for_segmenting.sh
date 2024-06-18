@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #SBATCH --account=PAS0536
 #SBATCH --job-name=panoptic
