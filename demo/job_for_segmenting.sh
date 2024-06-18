@@ -28,6 +28,8 @@ module spider cuda
 module load cuda/12.3.0
 module load miniconda3
 source activate maskdino
+python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
+
 
 
  python demo/demo_2.py --config-file ./configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml \
