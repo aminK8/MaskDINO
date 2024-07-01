@@ -7,7 +7,7 @@ def add_isthing_to_categories(json_file):
         
     if 'categories' in data:
         for category in data['categories']:
-            if category['id'] != 39:
+            if category['id'] != len(data['categories']) -1:
                 category['isthing'] = 1
             else:
                 category['isthing'] = 0
@@ -19,18 +19,23 @@ def process_json_files_in_directory(json_file):
     add_isthing_to_categories(json_file)
     print(f"Added 'isthing' to categories in {json_file}")
 
-labeled = False
+dataset_type = "pulte_lable_81"
 key_paths = []
 base_url = ""
 
-if labeled:
+
+if dataset_type == "construction":
     key_paths = ["valid", "test", "train"]
     # base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation"
     base_url = "../../dataset/seg_object_detection/auto_translate_v4-3"
     
-else:
+elif dataset_type == 'pulte_unlabel':
     key_paths = ['floorplans']
     base_url = "../../dataset/data_pulte/pulte"
 
+elif dataset_type == 'pulte_lable_81':
+    key_paths = ["valid", "train"]
+    base_url = "../../dataset/BrochurePlanLabeling.v5i.coco-segmentation"
+
 for key_path in key_paths:
-    process_json_files_in_directory(os.path.join(base_url, key_path, '_annotation_pulte_maskdino_augmented_file.json'))
+    process_json_files_in_directory(os.path.join(base_url, key_path, '_annotations.coco.json'))

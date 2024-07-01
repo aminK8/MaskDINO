@@ -34,20 +34,25 @@ def generate_segmentation_masks(annotations, image_shape, image_info):
 
 def save_panoptic_segmentation(segmentation_masks, output_path):
     cv2.imwrite(output_path, segmentation_masks)
-
-
-labeled = False
+ 
+    
+dataset_type = "pulte_lable_81"
 key_paths = []
 base_url = ""
 
-if labeled:
+if dataset_type == "construction":
     key_paths = ["valid", "test", "train"]
-    # base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/"
-    base_url = "../../dataset/seg_object_detection/auto_translate_v4-3/"
+    # base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation"
+    base_url = "../../dataset/seg_object_detection/auto_translate_v4-3"
     
-else:
+elif dataset_type == 'pulte_unlabel':
     key_paths = ['floorplans']
-    base_url = "../../dataset/data_pulte/pulte/"
+    base_url = "../../dataset/data_pulte/pulte"
+
+elif dataset_type == 'pulte_lable_81':
+    key_paths = ["valid", "train"]
+    base_url = "../../dataset/BrochurePlanLabeling.v5i.coco-segmentation"
+    
 
 for key_path in key_paths:   
     print(f"key is {key_path}")

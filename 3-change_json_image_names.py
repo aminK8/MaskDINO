@@ -2,10 +2,23 @@ import json
 
 
 
-files_name = ["test", "valid", "train"]  # Add your folder names here
 
-base_url = "../../dataset/seg_object_detection/auto_translate_v4-3/{}/_annotations.coco.json"
-# base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/{}/_annotations.coco.json"
+dataset_type = "pulte_lable_81"
+base_url = ""
+
+if dataset_type == "construction":
+    files_name = ["valid", "test", "train"]
+    # base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation"
+    base_url = "../../dataset/seg_object_detection/auto_translate_v4-3/{}/_annotations.coco.json"
+    
+elif dataset_type == 'pulte_unlabel':
+    files_name = ['floorplans']
+    base_url = "../../dataset/data_pulte/pulte/{}/_annotations.coco.json"
+
+elif dataset_type == 'pulte_lable_81':
+    files_name = ["valid", "train"]
+    base_url = "../../dataset/BrochurePlanLabeling.v5i.coco-segmentation/{}/_annotations.coco.json"
+
 
 
 for file_name in files_name:
@@ -25,8 +38,18 @@ for file_name in files_name:
     print(f"File names have been updated and saved to {path}")
             
             
-base_url = "../../dataset/seg_object_detection/auto_translate_v4-3/{}/_panoptic_annotations.coco.json"
-# base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation/{}/_panoptic_annotations.coco.json"
+if dataset_type == "construction":
+    # base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation"
+    base_url = "../../dataset/seg_object_detection/auto_translate_v4-3/{}/_panoptic_annotations.coco.json"
+    
+elif dataset_type == 'pulte_unlabel':
+    files_name = ['floorplans']
+    base_url = "../../dataset/data_pulte/pulte/{}/_panoptic_annotations.coco.json"
+
+elif dataset_type == 'pulte_lable_81':
+    files_name = ["valid", "train"]
+    base_url = "../../dataset/BrochurePlanLabeling.v5i.coco-segmentation/{}/_panoptic_annotations.coco.json"
+  
     
 
 for file_name in files_name:

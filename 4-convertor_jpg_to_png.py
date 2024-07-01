@@ -19,11 +19,24 @@ def convert_images(folder_path):
             
             print(f"Converted {file} to PNG")
 
-# List of folders containing images
-folders = ["panoptic_semseg_valid", "panoptic_semseg_train", "panoptic_semseg_test"]  # Add your folder names here
 
-base_url = "../../dataset/seg_object_detection/auto_translate_v4-3"
-# base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation"
+dataset_type = "pulte_lable_81"
+folders = []
+base_url = ""
+
+if dataset_type == "construction":
+    folders = ["panoptic_semseg_valid", "panoptic_semseg_train", "panoptic_semseg_test"]
+    # base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation"
+    base_url = "../../dataset/seg_object_detection/auto_translate_v4-3"
+    
+elif dataset_type == 'pulte_unlabel':
+    folders = ['floorplans']
+    base_url = "../../dataset/data_pulte/pulte"
+
+elif dataset_type == 'pulte_lable_81':
+    folders = ["valid", "train"]
+    base_url = "../../dataset/BrochurePlanLabeling.v5i.coco-segmentation"
+
 
 # Iterate through each folder and convert images
 for folder in folders:
