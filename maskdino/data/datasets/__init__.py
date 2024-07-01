@@ -6,6 +6,7 @@ from . import (
     register_mapillary_vistas,
     register_coco_panoptic_annos_semseg,
     register_higharc_panoptic_annos_semseg,
+    register_higharc_brochure_panoptic_annos_semseg,
     register_ade20k_instance,
     register_mapillary_vistas_panoptic,
     register_pulte_panoptic_annos_semseg,
