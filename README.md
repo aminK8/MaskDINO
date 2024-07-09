@@ -452,3 +452,13 @@ python demo_1.py --config-file ../configs/coco/panoptic-segmentation/maskdino_hi
 ## use pre-train for training labeled pulte dataset
 
 python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_higharc_brochure_R50_bs16_50ep_3s_dowsample1_2048.yaml MODEL.WEIGHTS ~/code/MaskDINO/output_dinomask_augmented_fine/model_0009999.pth
+
+
+
+
+
+===========================
+
+## experiment_one
+
+python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_higharc_brochure_R50_bs16_50ep_3s_dowsample1_2048.yaml MODEL.WEIGHTS ~/code/MaskDINO/output_wiht_ssl/model_0004999.pth

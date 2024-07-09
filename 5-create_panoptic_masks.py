@@ -51,7 +51,7 @@ elif dataset_type == 'pulte_unlabel':
 
 elif dataset_type == 'pulte_lable_81':
     key_paths = ["valid", "train"]
-    base_url = "../../dataset/BrochurePlanLabeling.v5i.coco-segmentation"
+    base_url = "../../dataset/experiment_one"
     
 
 for key_path in key_paths:   
