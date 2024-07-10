@@ -35,7 +35,7 @@ elif dataset_type == 'pulte_unlabel':
 
 elif dataset_type == 'pulte_lable_81':
     key_paths = ["valid", "train"]
-    base_url = "../../dataset/experiment_three"
+    base_url = "../../dataset/experiment_two"
 
 for key_path in key_paths:
     process_json_files_in_directory(os.path.join(base_url, key_path, '_annotations.coco.json'))

@@ -48,7 +48,7 @@ elif dataset_type == 'pulte_unlabel':
 
 elif dataset_type == 'pulte_lable_81':
     files_name = ["valid", "train"]
-    base_url = "../../dataset/experiment_three/{}/_panoptic_annotations.coco.json"
+    base_url = "../../dataset/experiment_two/{}/_panoptic_annotations.coco.json"
   
     
 

@@ -245,7 +245,7 @@ if __name__ == "__main__":
 
     elif dataset_type == 'pulte_lable_81':
         key_paths = ["valid", "train"]
-        base_url = "../../dataset/experiment_three"
+        base_url = "../../dataset/experiment_two"
     
 
     for key_path in key_paths: 
