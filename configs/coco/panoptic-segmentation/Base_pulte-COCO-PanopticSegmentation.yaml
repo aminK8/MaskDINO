@@ -38,7 +38,7 @@ INPUT:
   MIN_SCALE: 0.1
   MAX_SCALE: 2.0
   FORMAT: "RGB"
-  DATASET_MAPPER_NAME: "coco_panoptic_lsj_higharch_pulte"
+  DATASET_MAPPER_NAME: "coco_panoptic_lsj_higharc_pulte"
 TEST:
   EVAL_PERIOD: 35100
 DATALOADER:

@@ -159,6 +159,10 @@ categories = [
 ]
 
 
+# HIGHARC_CATEGORIES = [
+#     {'color': generate_random_color(), 'isthing': 1, 'id': cat['id'], 'name': cat['name']} for cat in categories
+# ]
+
 HIGHARC_CATEGORIES = [
-    {'color': generate_random_color(), 'isthing': 1, 'id': cat['id'], 'name': cat['name']} for cat in categories
+    {'color': generate_random_color(), 'isthing': 1 if i < len(categories) - 1 else 0, 'id': cat['id'], 'name': cat['name']} for i, cat in enumerate(categories)
 ]

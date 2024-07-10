@@ -14,8 +14,8 @@ MODEL:
     # NORM: "SyncBN"
     RES5_MULTI_GRID: [1, 1, 1]  # not used
 DATASETS:
-  TRAIN: ("train_higharch_brochure_panoptic",)
-  TEST: ("val_higharch_brochure_panoptic_with_sem_seg",)  # to evaluate instance and semantic performance as well
+  TRAIN: ("train_higharc_brochure_panoptic",)
+  TEST: ("val_higharc_brochure_panoptic_with_sem_seg",)  # to evaluate instance and semantic performance as well
 SOLVER:
   IMS_PER_BATCH: 3
   BASE_LR: 0.0001
@@ -38,7 +38,7 @@ INPUT:
   MIN_SCALE: 0.1
   MAX_SCALE: 2.0
   FORMAT: "RGB"
-  DATASET_MAPPER_NAME: "coco_panoptic_lsj_higharch_brochure"
+  DATASET_MAPPER_NAME: "coco_panoptic_lsj_higharc_brochure"
 TEST:
   EVAL_PERIOD: 2500
 DATALOADER:

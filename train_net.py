@@ -218,13 +218,13 @@ class Trainer(DefaultTrainer):
         elif cfg.INPUT.DATASET_MAPPER_NAME == "mask_former_semantic":
             mapper = MaskFormerSemanticDatasetMapper(cfg, True)
             return build_detection_train_loader(cfg, mapper=mapper)
-        elif cfg.INPUT.DATASET_MAPPER_NAME == "coco_panoptic_lsj_higharch":
+        elif cfg.INPUT.DATASET_MAPPER_NAME == "coco_panoptic_lsj_higharc":
             mapper = COCOHigharcPanopticNewBaselineDatasetMapper(cfg, True)
             return build_detection_train_loader(cfg, mapper=mapper)
-        elif cfg.INPUT.DATASET_MAPPER_NAME == "coco_panoptic_lsj_higharch_pulte":
+        elif cfg.INPUT.DATASET_MAPPER_NAME == "coco_panoptic_lsj_higharc_pulte":
             mapper = COCOHigharcPanopticNewBaselineDatasetMapper(cfg, True)
             return build_detection_train_loader(cfg, mapper=mapper)
-        elif cfg.INPUT.DATASET_MAPPER_NAME == "coco_panoptic_lsj_higharch_brochure":
+        elif cfg.INPUT.DATASET_MAPPER_NAME == "coco_panoptic_lsj_higharc_brochure":
             mapper = COCOHigharcPanopticNewBaselineDatasetMapper(cfg, True)
             return build_detection_train_loader(cfg, mapper=mapper)
         else:
