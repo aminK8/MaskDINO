@@ -139,5 +139,5 @@ def register_all_coco_panoptic_annos_sem_seg(root):
         )
 
 
-_root = "/home/ubuntu/dataset/BrochurePlanLabeling.v5i.coco-segmentation"
+_root = "/home/ubuntu/dataset/experiment_one"
 register_all_coco_panoptic_annos_sem_seg(_root)
