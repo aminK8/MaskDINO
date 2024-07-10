@@ -462,3 +462,19 @@ python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentatio
 ## experiment_one
 
 python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_higharc_brochure_R50_bs16_50ep_3s_dowsample1_2048.yaml MODEL.WEIGHTS ~/code/MaskDINO/output_dinomask_augmented/model_0029999.pth
+
+allisonramsey
+brohn
+centurycommunities
+harrisdoyle
+homeplans
+lennar
+lgi
+markstewart
+nvhomes
+pulte
+yourarborhome
+
+
+python demo_1.py --config-file ../configs/coco/panoptic-segmentation/maskdino_higharc_brochure_R50_bs16_50ep_3s_dowsample1_2048.yaml \
+--input ~/dataset/samples_0624/pulte --output ../output_experiment_one/output/5000/pulte --opts MODEL.WEIGHTS ../output_experiment_one/model_0004999.pth

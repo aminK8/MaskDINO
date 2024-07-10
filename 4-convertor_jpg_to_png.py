@@ -35,7 +35,7 @@ elif dataset_type == 'pulte_unlabel':
 
 elif dataset_type == 'pulte_lable_81':
     folders = ["valid", "train"]
-    base_url = "../../dataset/experiment_one"
+    base_url = "../../dataset/experiment_three"
 
 
 # Iterate through each folder and convert images

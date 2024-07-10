@@ -44,243 +44,297 @@ coco_json = {
     "categories": [
         {
             "id": 0,
-            "name": "architectural-plans-kBh5",
+            "name": "architectural-plans-fXWf",
             "supercategory": "none",
-            "isthing": 0
+            "isthing": 1
         },
         {
             "id": 1,
-            "name": "bath",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "BALCONY",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 2,
-            "name": "bed_closet",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "BASEMENT",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 3,
-            "name": "bed_pass",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "BASEMENT FINISHED",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 4,
-            "name": "bedroom",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "BASEMENT UNFINISHED",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 5,
-            "name": "chase",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "BATHFULL",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 6,
-            "name": "closet",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "BEDROOM",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 7,
-            "name": "dining",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "BEDROOM_CLOSET",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 8,
-            "name": "entry",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "CAFE",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 9,
-            "name": "fireplace",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "CLOSET",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 10,
-            "name": "flex",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "COVERED LANAI",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 11,
-            "name": "foyer",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "CRAWL SPACE",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 12,
-            "name": "front_porch",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "DECK",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 13,
-            "name": "garage",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "DEN",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 14,
-            "name": "general",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "DINING",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 15,
-            "name": "hall",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "ENTRY",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 16,
-            "name": "hall_cased_opening",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "FLEX",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 17,
-            "name": "kitchen",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "FOYER",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 18,
-            "name": "laundry",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "FRONT_PORCH",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 19,
-            "name": "living",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "GAME ROOM",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 20,
-            "name": "master_bed",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "GARAGE",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 21,
-            "name": "master_closet",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "GENERAL",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 22,
-            "name": "master_hall",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "HALL",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 23,
-            "name": "master_vestibule",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "HVAC",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 24,
-            "name": "mech",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "KITCHEN",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 25,
-            "name": "mudroom",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "LAUNDRY",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 26,
-            "name": "office",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "LIBRARY",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 27,
-            "name": "pantry",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "LIVING",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 28,
-            "name": "patio",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "LOFT",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 29,
-            "name": "portico",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "MASTER_BED",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 30,
-            "name": "powder",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "MECH",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 31,
-            "name": "reach_closet",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "MUDROOM",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 32,
-            "name": "reading_nook",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "NOOK",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 33,
-            "name": "rear_porch",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "OFFICE",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 34,
-            "name": "solarium",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "OPEN TO BELOW",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 35,
-            "name": "stairs_editor",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "OWNER SUITE",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 36,
-            "name": "util_hall",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "PANTRY",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 37,
-            "name": "walk",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "PATIO",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 38,
-            "name": "water_closet",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "POWDER",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
         },
         {
             "id": 39,
-            "name": "workshop",
-            "supercategory": "architectural-plans-kBh5",
+            "name": "PR",
+            "supercategory": "architectural-plans-fXWf",
             "isthing": 1
+        },
+        {
+            "id": 40,
+            "name": "RISER",
+            "supercategory": "architectural-plans-fXWf",
+            "isthing": 1
+        },
+        {
+            "id": 41,
+            "name": "SHOWER",
+            "supercategory": "architectural-plans-fXWf",
+            "isthing": 1
+        },
+        {
+            "id": 42,
+            "name": "STAIRS",
+            "supercategory": "architectural-plans-fXWf",
+            "isthing": 1
+        },
+        {
+            "id": 43,
+            "name": "STORAGE",
+            "supercategory": "architectural-plans-fXWf",
+            "isthing": 1
+        },
+        {
+            "id": 44,
+            "name": "STUDY",
+            "supercategory": "architectural-plans-fXWf",
+            "isthing": 1
+        },
+        {
+            "id": 45,
+            "name": "WALK_IN_CLOSET",
+            "supercategory": "architectural-plans-fXWf",
+            "isthing": 1
+        },
+        {
+            "id": 46,
+            "name": "WATER_CLOSET",
+            "supercategory": "architectural-plans-fXWf",
+            "isthing": 1
+        },
+        {
+            "id": 47,
+            "name": "mechanical",
+            "supercategory": "architectural-plans-fXWf",
+            "isthing": 1
+        },
+        {
+            "id": 48,
+            "name": "ppc",
+            "supercategory": "architectural-plans-fXWf",
+            "isthing": 0
         }
     ],
 }
@@ -288,9 +342,29 @@ coco_json = {
 
 def read_image(path, format="BGR"):
     img = Image.open(path)
+    
+    # Check if either width or height is greater than 2000
+    if img.width > 2000 or img.height > 2000:
+        # Resize both width and height by dividing by 2
+        new_width = img.width // 2
+        new_height = img.height // 2
+        img = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
+    
+    # Check if the image has an alpha channel (transparency)
+    if img.mode == "RGBA":
+        # Create a white background image
+        white_bg = Image.new("RGBA", img.size, (255, 255, 255, 255))
+        
+        # Paste the original image onto the white background
+        white_bg.paste(img, (0, 0), img)
+        
+        img = white_bg
+    
+    # Convert to the desired format
     if format == "BGR":
         img = img.convert("RGB")
         img = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
+    
     return img
 
 def setup_cfg(args):

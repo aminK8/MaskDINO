@@ -57,7 +57,7 @@ elif dataset_type == 'pulte_unlabel':
 
 elif dataset_type == 'pulte_lable_81':
     key_paths = ["valid", "train"]
-    base_url = "../../dataset/experiment_one/{}"
+    base_url = "../../dataset/experiment_three/{}"
 
 for t in key_paths:    
     anno_file = os.path.join(base_url, "_annotations.coco.json").format(t)
