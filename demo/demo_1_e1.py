@@ -339,8 +339,6 @@ coco_json = {
     ],
 }
 
-
-
 def read_image(path, format="BGR"):
     img = Image.open(path)
     
