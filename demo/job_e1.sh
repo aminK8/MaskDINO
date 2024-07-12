@@ -42,7 +42,7 @@ do
         mkdir -p "${output_dir}"
 
         # Run the command
-        python demo_1.py --config-file "${config_file}" --input "${input_dir}" --output "${output_dir}" --opts MODEL.WEIGHTS "${weights_file}"
+        python demo_1_e1.py --config-file "${config_file}" --input "${input_dir}" --output "${output_dir}" --opts MODEL.WEIGHTS "${weights_file}"
 
         # Optionally, you can add a newline or separator for clarity
         echo "Finished processing ${datasetname} with model ${checkpoint}"
