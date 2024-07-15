@@ -9,7 +9,6 @@ datasets=(
     "homeplans"
     "lennar"
     "lgi"
-    "markstewart"
     "nvhomes"
     "pulte"
     "yourarborhome"
@@ -17,13 +16,7 @@ datasets=(
 
 # Define the list of model checkpoints
 checkpoints=(
-    "0004999"
-    "0009999"
-    "0014999"
-    "0019999"
-    "0024999"
     "0029999"
-    "0034999"
 )
 
 # Loop through each dataset
@@ -33,8 +26,8 @@ do
     for checkpoint in "${checkpoints[@]}"
     do
         # Define paths
-        input_dir="~/dataset/samples_0624/${datasetname}"
-        output_dir="../output_experiment_two/output/${checkpoint}/${datasetname}"
+        input_dir="~/dataset/unlabeled/data_${datasetname}/${datasetname}/floorplans"
+        output_dir="../output_experiment_two/output/pseudo/${checkpoint}/${datasetname}"
         config_file="../configs/coco/panoptic-segmentation/maskdino_higharc_brochure_R50_bs16_50ep_3s_dowsample1_2048_e2.yaml"
         weights_file="../output_experiment_two/model_${checkpoint}.pth"
 
