@@ -2,11 +2,11 @@
 
 # Define the list of datasets
 datasets=(
-    "allisonramsey"
-    "brohn"
-    "centurycommunities"
-    "harrisdoyle"
-    "homeplans"
+    # "allisonramsey"
+    # "brohn"
+    # "centurycommunities"
+    # "harrisdoyle"
+    # "homeplans"
     "lennar"
     "lgi"
     "nvhomes"
