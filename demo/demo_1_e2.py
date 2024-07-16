@@ -502,6 +502,8 @@ if __name__ == "__main__":
             if idx % 10 == 9:
                 with open(args.output + "/_annotation_file.json", 'w') as f:
                     json.dump(coco_json, f, indent=4) 
+                if idx > 5000:
+                    break
 
             if args.output:
                 if os.path.isdir(args.output):
