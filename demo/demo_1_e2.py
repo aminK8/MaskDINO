@@ -438,7 +438,7 @@ if __name__ == "__main__":
         assert args.input, "The input path(s) was not found"
         idx = 0
         for path in tqdm.tqdm(args.input, disable=not args.output):
-            if path[-4:] == "json" or path[-4:] == '.svg' or path[-4:] == '.pdf':
+            if path[-4:] == "json" or path[-4:] == '.svg' or path[-4:] == '.pdf' or path[-4:] == '.jpg':
                 continue
             # use PIL, to be consistent with evaluation
             img = read_image(path, format="BGR")

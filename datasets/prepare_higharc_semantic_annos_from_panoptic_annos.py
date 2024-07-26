@@ -21,6 +21,8 @@ def _process_panoptic_to_semantic(input_panoptic, output_semantic, segments, id_
     output = np.zeros_like(panoptic, dtype=np.uint8) + 255
     for seg in segments:
         cat_id = seg["category_id"]
+        # if cat_id > 45:
+        #     cat_id = 45
         new_cat_id = id_map[cat_id]
         output[panoptic == seg["id"]] = new_cat_id
     Image.fromarray(output).save(output_semantic)
@@ -175,6 +177,56 @@ def separate_coco_semantic_from_panoptic(panoptic_json, panoptic_root, sem_seg_r
 #     54: "unf"
 # }
 
+# mscoco_category2name = {
+#     0: "architectural-plans-LGP8",
+#     1: "BALCONY",
+#     2: "BASEMENT",
+#     3: "BATHFULL",
+#     4: "BATHHALF",
+#     5: "BATH_HALL",
+#     6: "BAY_WINDOW",
+#     7: "BEDROOM",
+#     8: "CAFE",
+#     9: "CHASE",
+#     10: "CLOSET",
+#     11: "DECK",
+#     12: "DINING",
+#     13: "DINING_NOOK",
+#     14: "ENTRY",
+#     15: "FLEX",
+#     16: "FOYER",
+#     17: "FRONT_PORCH",
+#     18: "GARAGE",
+#     19: "GENERAL",
+#     20: "HALL",
+#     21: "KITCHEN",
+#     22: "KITCHEN_HALL",
+#     23: "LAUNDRY",
+#     24: "LIBRARY",
+#     25: "LIVING",
+#     26: "LIVING_HALL",
+#     27: "LOFT",
+#     28: "MASTER_BATH",
+#     29: "MASTER_BED",
+#     30: "MASTER_VESTIBULE",
+#     31: "MECH",
+#     32: "MUDROOM",
+#     33: "NOOK",
+#     34: "OFFICE",
+#     35: "OPEN TO BELOW",
+#     36: "PANTRY",
+#     37: "PATIO",
+#     38: "PORCH",
+#     39: "POWDER",
+#     40: "PR",
+#     41: "REAR_PORCH",
+#     42: "SHOWER",
+#     43: "STAIRS",
+#     44: "WALK_IN_CLOSET",
+#     45: "WATER_CLOSET"
+# }
+
+
 mscoco_category2name = {
     0: "architectural-plans-LGP8",
     1: "BALCONY",
@@ -184,44 +236,49 @@ mscoco_category2name = {
     5: "BATH_HALL",
     6: "BAY_WINDOW",
     7: "BEDROOM",
-    8: "CAFE",
-    9: "CHASE",
-    10: "CLOSET",
-    11: "DECK",
-    12: "DINING",
-    13: "DINING_NOOK",
-    14: "ENTRY",
-    15: "FLEX",
-    16: "FOYER",
-    17: "FRONT_PORCH",
-    18: "GARAGE",
-    19: "GENERAL",
-    20: "HALL",
-    21: "KITCHEN",
-    22: "KITCHEN_HALL",
-    23: "LAUNDRY",
-    24: "LIBRARY",
-    25: "LIVING",
-    26: "LIVING_HALL",
-    27: "LOFT",
-    28: "MASTER_BATH",
-    29: "MASTER_BED",
-    30: "MASTER_VESTIBULE",
-    31: "MECH",
-    32: "MUDROOM",
-    33: "NOOK",
-    34: "OFFICE",
-    35: "OPEN TO BELOW",
-    36: "PANTRY",
-    37: "PATIO",
-    38: "PORCH",
-    39: "POWDER",
-    40: "PR",
-    41: "REAR_PORCH",
-    42: "SHOWER",
-    43: "STAIRS",
-    44: "WALK_IN_CLOSET",
-    45: "WATER_CLOSET"
+    8: "BED_CLOSET",
+    9: "CABINETS",
+    10: "CAFE",
+    11: "CHASE",
+    12: "CLOSET",
+    13: "COAT_CLOSET",
+    14: "DECK",
+    15: "DINING",
+    16: "DINING_NOOK",
+    17: "ENTRY",
+    18: "FLEX",
+    19: "FOYER",
+    20: "FRONT_PORCH",
+    21: "GARAGE",
+    22: "GARAGE_DETACH",
+    23: "GENERAL",
+    24: "HALL",
+    25: "KITCHEN",
+    26: "KITCHEN_HALL",
+    27: "LAUNDRY",
+    28: "LIBRARY",
+    29: "LIVING",
+    30: "LIVING_HALL",
+    31: "LOFT",
+    32: "MASTER_BATH",
+    33: "MASTER_BED",
+    34: "MASTER_HALL",
+    35: "MASTER_VESTIBULE",
+    36: "MECH",
+    37: "MUDROOM",
+    38: "NOOK",
+    39: "OFFICE",
+    40: "OPEN TO BELOW",
+    41: "PANTRY",
+    42: "PATIO",
+    43: "PORCH",
+    44: "POWDER",
+    45: "PR",
+    46: "REAR_PORCH",
+    47: "SHOWER",
+    48: "STAIRS",
+    49: "WALK_IN_CLOSET",
+    50: "WATER_CLOSET"
 }
 
 
@@ -230,7 +287,7 @@ mscoco_category2name = {
 
 if __name__ == "__main__":
     
-    dataset_type = "pulte_lable_81"
+    dataset_type = "expriment_three"
     key_paths = []
     base_url = ""
     if dataset_type == "construction":
@@ -245,6 +302,14 @@ if __name__ == "__main__":
     elif dataset_type == 'pulte_lable_81':
         key_paths = ["valid", "train"]
         base_url = "../../dataset/experiment_two"
+        
+    elif dataset_type == 'pseudo':
+        key_paths = ["train"]
+        base_url = "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo"
+    
+    elif dataset_type == 'expriment_three':
+        key_paths = ["test", "train"]
+        base_url = "../../dataset/expriment_three_1"
     
 
     for key_path in key_paths: 

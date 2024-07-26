@@ -467,3 +467,20 @@ python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentatio
 
 python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_higharc_brochure_R50_bs16_50ep_3s_dowsample1_2048_e2.yaml MODEL.WEIGHTS ~/code/MaskDINO/output_dinomask_augmented/model_0029999.pth
 
+
+===========================
+
+## experiment train with construction data
+
+python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_higharc_R50_bs16_50ep_3s_dowsample1_2048.yaml MODEL.WEIGHTS ~/MaskDino-ZOO/maskdino_r50_50ep_300q_hid2048_3sd1_instance_maskenhanced_mask46.3ap_box51.7ap.pth
+
+===========================
+
+## experiment train pseudo label with construction pre-train
+
+python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_higharc_brochure_R50_bs16_50ep_3s_dowsample1_2048.yaml MODEL.WEIGHTS /home/ubuntu/code/MaskDINO/output_train_pseudo_experiment_three/model_0034999.pth
+
+===========================
+## experiment_three
+
+python train_net.py --num-gpus 1 --config-file configs/coco/panoptic-segmentation/maskdino_higharc_brochure_R50_bs16_50ep_3s_dowsample1_2048_e2.yaml MODEL.WEIGHTS ~/code/MaskDINO/output_pre_trained_wiht_expriment_two_pseudo/model_0069999.pth

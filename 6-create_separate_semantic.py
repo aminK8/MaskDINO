@@ -172,54 +172,110 @@ def generate_random_color():
 #     {"id": 48, "name": "ppc", "supercategory": "architectural-plans-fXWf"},
 # ]
 
+# categories = [
+#     {"id": 0, "name": "architectural-plans-LGP8", "supercategory": "none", "isthing": 1},
+#     {"id": 1, "name": "BALCONY", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 2, "name": "BASEMENT", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 3, "name": "BATHFULL", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 4, "name": "BATHHALF", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 5, "name": "BATH_HALL", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 6, "name": "BAY_WINDOW", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 7, "name": "BEDROOM", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 8, "name": "CAFE", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 9, "name": "CHASE", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 10, "name": "CLOSET", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 11, "name": "DECK", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 12, "name": "DINING", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 13, "name": "DINING_NOOK", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 14, "name": "ENTRY", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 15, "name": "FLEX", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 16, "name": "FOYER", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 17, "name": "FRONT_PORCH", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 18, "name": "GARAGE", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 19, "name": "GENERAL", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 20, "name": "HALL", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 21, "name": "KITCHEN", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 22, "name": "KITCHEN_HALL", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 23, "name": "LAUNDRY", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 24, "name": "LIBRARY", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 25, "name": "LIVING", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 26, "name": "LIVING_HALL", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 27, "name": "LOFT", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 28, "name": "MASTER_BATH", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 29, "name": "MASTER_BED", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 30, "name": "MASTER_VESTIBULE", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 31, "name": "MECH", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 32, "name": "MUDROOM", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 33, "name": "NOOK", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 34, "name": "OFFICE", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 35, "name": "OPEN TO BELOW", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 36, "name": "PANTRY", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 37, "name": "PATIO", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 38, "name": "PORCH", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 39, "name": "POWDER", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 40, "name": "PR", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 41, "name": "REAR_PORCH", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 42, "name": "SHOWER", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 43, "name": "STAIRS", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 44, "name": "WALK_IN_CLOSET", "supercategory": "architectural-plans-LGP8", "isthing": 1},
+#     {"id": 45, "name": "WATER_CLOSET", "supercategory": "architectural-plans-LGP8", "isthing": 0}
+# ]
+
+
 categories = [
-    {"id": 0, "name": "architectural-plans-LGP8", "supercategory": "none", "isthing": 1},
-    {"id": 1, "name": "BALCONY", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 2, "name": "BASEMENT", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 3, "name": "BATHFULL", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 4, "name": "BATHHALF", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 5, "name": "BATH_HALL", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 6, "name": "BAY_WINDOW", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 7, "name": "BEDROOM", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 8, "name": "CAFE", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 9, "name": "CHASE", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 10, "name": "CLOSET", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 11, "name": "DECK", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 12, "name": "DINING", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 13, "name": "DINING_NOOK", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 14, "name": "ENTRY", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 15, "name": "FLEX", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 16, "name": "FOYER", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 17, "name": "FRONT_PORCH", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 18, "name": "GARAGE", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 19, "name": "GENERAL", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 20, "name": "HALL", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 21, "name": "KITCHEN", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 22, "name": "KITCHEN_HALL", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 23, "name": "LAUNDRY", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 24, "name": "LIBRARY", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 25, "name": "LIVING", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 26, "name": "LIVING_HALL", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 27, "name": "LOFT", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 28, "name": "MASTER_BATH", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 29, "name": "MASTER_BED", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 30, "name": "MASTER_VESTIBULE", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 31, "name": "MECH", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 32, "name": "MUDROOM", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 33, "name": "NOOK", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 34, "name": "OFFICE", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 35, "name": "OPEN TO BELOW", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 36, "name": "PANTRY", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 37, "name": "PATIO", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 38, "name": "PORCH", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 39, "name": "POWDER", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 40, "name": "PR", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 41, "name": "REAR_PORCH", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 42, "name": "SHOWER", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 43, "name": "STAIRS", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 44, "name": "WALK_IN_CLOSET", "supercategory": "architectural-plans-LGP8", "isthing": 1},
-    {"id": 45, "name": "WATER_CLOSET", "supercategory": "architectural-plans-LGP8", "isthing": 0},
+    { "id": 0, "name": "architectural-plans-LGP8", "supercategory": "none", "isthing": 1 },
+    { "id": 1, "name": "BALCONY", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 2, "name": "BASEMENT", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 3, "name": "BATHFULL", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 4, "name": "BATHHALF", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 5, "name": "BATH_HALL", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 6, "name": "BAY_WINDOW", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 7, "name": "BEDROOM", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 8, "name": "BED_CLOSET", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 9, "name": "CABINETS", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 10, "name": "CAFE", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 11, "name": "CHASE", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 12, "name": "CLOSET", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 13, "name": "COAT_CLOSET", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 14, "name": "DECK", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 15, "name": "DINING", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 16, "name": "DINING_NOOK", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 17, "name": "ENTRY", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 18, "name": "FLEX", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 19, "name": "FOYER", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 20, "name": "FRONT_PORCH", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 21, "name": "GARAGE", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 22, "name": "GARAGE_DETACH", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 23, "name": "GENERAL", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 24, "name": "HALL", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 25, "name": "KITCHEN", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 26, "name": "KITCHEN_HALL", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 27, "name": "LAUNDRY", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 28, "name": "LIBRARY", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 29, "name": "LIVING", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 30, "name": "LIVING_HALL", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 31, "name": "LOFT", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 32, "name": "MASTER_BATH", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 33, "name": "MASTER_BED", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 34, "name": "MASTER_HALL", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 35, "name": "MASTER_VESTIBULE", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 36, "name": "MECH", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 37, "name": "MUDROOM", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 38, "name": "NOOK", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 39, "name": "OFFICE", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 40, "name": "OPEN TO BELOW", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 41, "name": "PANTRY", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 42, "name": "PATIO", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 43, "name": "PORCH", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 44, "name": "POWDER", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 45, "name": "PR", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 46, "name": "REAR_PORCH", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 47, "name": "SHOWER", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 48, "name": "STAIRS", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 49, "name": "WALK_IN_CLOSET", "supercategory": "architectural-plans-LGP8", "isthing": 1 },
+    { "id": 50, "name": "WATER_CLOSET", "supercategory": "architectural-plans-LGP8", "isthing": 0 }
 ]
+
 
 
 
@@ -237,6 +293,8 @@ def _process_panoptic_to_semantic(input_panoptic, output_semantic, segments, id_
     output = np.zeros_like(panoptic, dtype=np.uint8) + 255
     for seg in segments:
         cat_id = seg["category_id"]
+        # if cat_id > 55:
+        #     cat_id = 50
         new_cat_id = id_map[cat_id]
         output[panoptic == seg["id"]] = new_cat_id
     Image.fromarray(output).save(output_semantic)
@@ -294,7 +352,7 @@ def separate_coco_semantic_from_panoptic(panoptic_json, panoptic_root, sem_seg_r
 
 
 if __name__ == "__main__":
-    dataset_type = "pulte_lable_81"
+    dataset_type = "expriment_three"
     key_paths = []
     base_url = ""
 
@@ -310,6 +368,15 @@ if __name__ == "__main__":
     elif dataset_type == 'pulte_lable_81':
         key_paths = ["valid", "train"]
         base_url = "../../dataset/experiment_two"
+        
+    elif dataset_type == 'pseudo':
+        key_paths = ["train"]
+        base_url = "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo"
+        
+    elif dataset_type == 'expriment_three':
+        key_paths = ["test", "train"]
+        base_url = "../../dataset/expriment_three_1"
+    
     
 
     for key_path in key_paths:   

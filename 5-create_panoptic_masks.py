@@ -2,6 +2,7 @@ import os
 import cv2
 import numpy as np
 import json
+import shutil
 from panopticapi.utils import id2rgb
 
 
@@ -28,15 +29,15 @@ def generate_segmentation_masks(annotations, image_shape, image_info):
             # Add the mask to the overall segmentation masks
             segmentation_masks = np.maximum(segmentation_masks, segmentation_mask)
 
-    if (segmentation_masks[:, :, 2] > 0).any():
-        print("amin")
+    # if (segmentation_masks[:, :, 2] > 0).any():
+    #     print("amin")
     return segmentation_masks
 
 def save_panoptic_segmentation(segmentation_masks, output_path):
     cv2.imwrite(output_path, segmentation_masks)
  
     
-dataset_type = "pulte_lable_81"
+dataset_type = "expriment_three"
 key_paths = []
 base_url = ""
 
@@ -52,6 +53,14 @@ elif dataset_type == 'pulte_unlabel':
 elif dataset_type == 'pulte_lable_81':
     key_paths = ["valid", "train"]
     base_url = "../../dataset/experiment_two"
+    
+elif dataset_type == 'pseudo':
+    key_paths = ["train"]
+    base_url = "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo"
+    
+elif dataset_type == 'expriment_three':
+    key_paths = ["test", "train"]
+    base_url = "../../dataset/expriment_three_1/"
     
 
 for key_path in key_paths:   
@@ -84,6 +93,34 @@ for key_path in key_paths:
 
         # Load the image
         image = cv2.imread(image_path)
+        if image is None:
+            print(image_path)
+            search_directories = [
+                "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo/0029999/allisonramsey",
+                "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo/0029999/brohn",
+                "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo/0029999/centurycommunities",
+                "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo/0029999/harrisdoyle",
+                "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo/0029999/homeplans",
+                "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo/0029999/lennar",
+                "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo/0029999/lgi",
+                "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo/0029999/nvhomes",
+                "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo/0029999/pulte",
+                "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo/0029999/yourarborhome"
+            ]
+            target_directory, filename = os.path.split(image_path)
+            
+            for directory in search_directories:
+                image_path_search = os.path.join(directory, filename)
+                image = cv2.imread(image_path_search)
+                if image is not None:
+                    # Copy the image to the target directory
+                    shutil.copy(image_path_search, image_path)
+                    print(f"Image copied from {image_path_search} to {image_path}")
+                    break
+                else:
+                    print(f"Image not found in {image_path_search}")
+                    print(image_path)
+                    continue
 
         # Generate segmentation masks
         segmentation_masks = generate_segmentation_masks(annotations, image.shape, image_info)

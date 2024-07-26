@@ -1,10 +1,10 @@
-_BASE_: Base_higharc_brochure-COCO-PanopticSegmentation.yaml
+_BASE_: Base_higharc_brochure-COCO-PanopticSegmentation_new.yaml
 MODEL:
   META_ARCHITECTURE: "MaskDINO"
   SEM_SEG_HEAD:
     NAME: "MaskDINOHead"
     IGNORE_VALUE: 255
-    NUM_CLASSES: 49
+    NUM_CLASSES: 46
     LOSS_WEIGHT: 1.0
     CONVS_DIM: 256
     MASK_DIM: 256
@@ -59,5 +59,5 @@ SOLVER:
   AMP:
     ENABLED: True
 TEST:
-  EVAL_PERIOD: 2500
+  EVAL_PERIOD: 250000000
 #  EVAL_FLAG: 1

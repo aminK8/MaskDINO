@@ -19,7 +19,7 @@ def process_json_files_in_directory(json_file):
     add_isthing_to_categories(json_file)
     print(f"Added 'isthing' to categories in {json_file}")
 
-dataset_type = "pulte_lable_81"
+dataset_type = "expriment_three"
 key_paths = []
 base_url = ""
 
@@ -36,6 +36,14 @@ elif dataset_type == 'pulte_unlabel':
 elif dataset_type == 'pulte_lable_81':
     key_paths = ["valid", "train"]
     base_url = "../../dataset/experiment_two"
+    
+elif dataset_type == 'pseudo':
+    key_paths = ["train"]
+    base_url = "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo"
+    
+elif dataset_type == 'expriment_three':
+    key_paths = ["test", "train"]
+    base_url = "../../dataset/expriment_three_1"
 
 for key_path in key_paths:
     process_json_files_in_directory(os.path.join(base_url, key_path, '_annotations.coco.json'))

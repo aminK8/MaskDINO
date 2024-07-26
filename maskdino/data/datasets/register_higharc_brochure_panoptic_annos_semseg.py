@@ -16,10 +16,10 @@ _PREDEFINED_SPLITS_COCO_PANOPTIC = {
         "panoptic_semseg_train",
     ),
     "val_higharc_brochure_panoptic": (
-        "valid",
-        "panoptic_masks/valid",
-        "valid/_panoptic_annotations.coco.json",
-        "panoptic_semseg_valid",
+        "test",
+        "panoptic_masks/test",
+        "test/_panoptic_annotations.coco.json",
+        "panoptic_semseg_test",
     ),
 }
 
@@ -139,5 +139,5 @@ def register_all_coco_panoptic_annos_sem_seg(root):
         )
 
 
-_root = "/home/ubuntu/dataset/experiment_two"
+_root = "/home/ubuntu/dataset/expriment_three_1"
 register_all_coco_panoptic_annos_sem_seg(_root)

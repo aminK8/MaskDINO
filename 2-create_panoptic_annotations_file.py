@@ -41,7 +41,7 @@ def convert_coco_to_panoptic(coco_json):
 
 
 
-dataset_type = "pulte_lable_81"
+dataset_type = "expriment_three"
 key_paths = []
 base_url = ""
 
@@ -49,18 +49,27 @@ base_url = ""
 if dataset_type == "construction":
     key_paths = ["valid", "test", "train"]
     # base_url = "/Users/amin/Desktop/higharc/Datasets/Laleled-2024-05-29/auto_translate_v4.v3i.coco-segmentation"
-    base_url = "../../dataset/seg_object_detection/auto_translate_v4-3/{}/"
+    base_url = "../../dataset/seg_object_detection/auto_translate_v4-3/"
     
 elif dataset_type == 'pulte_unlabel':
     key_paths = ['floorplans']
-    base_url = "../../dataset/data_pulte/pulte/{}/"
+    base_url = "../../dataset/data_pulte/pulte/"
 
 elif dataset_type == 'pulte_lable_81':
     key_paths = ["valid", "train"]
-    base_url = "../../dataset/experiment_two/{}"
+    base_url = "../../dataset/experiment_two/"
+    
+elif dataset_type == 'pseudo':
+    key_paths = ["train"]
+    base_url = "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo"
+    
+    
+elif dataset_type == 'expriment_three':
+    key_paths = ["test", "train"]
+    base_url = "../../dataset/expriment_three_1"
 
 for t in key_paths:    
-    anno_file = os.path.join(base_url, "_annotations.coco.json").format(t)
+    anno_file = os.path.join(base_url, t, "_annotations.coco.json")
     print(anno_file)
     # Load the JSON file
     with open(anno_file, 'r') as f:
@@ -69,6 +78,6 @@ for t in key_paths:
     panoptic_json = convert_coco_to_panoptic(coco_json)
 
     # Save to a JSON file
-    out_file = os.path.join(base_url, "_panoptic_annotations.coco.json").format(t)
+    out_file = os.path.join(base_url, t, "_panoptic_annotations.coco.json").format(t)
     with open(out_file, 'w') as f:
         json.dump(panoptic_json, f, indent=2)

@@ -20,7 +20,7 @@ def convert_images(folder_path):
             print(f"Converted {file} to PNG")
 
 
-dataset_type = "pulte_lable_81"
+dataset_type = "expriment_three"
 folders = []
 base_url = ""
 
@@ -36,6 +36,14 @@ elif dataset_type == 'pulte_unlabel':
 elif dataset_type == 'pulte_lable_81':
     folders = ["valid", "train"]
     base_url = "../../dataset/experiment_two"
+    
+elif dataset_type == 'pseudo':
+    folders = ["train"]
+    base_url = "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo"
+    
+elif dataset_type == 'expriment_three':
+    folders = ["test", "train"]
+    base_url = "../../dataset/expriment_three_1/"
 
 
 # Iterate through each folder and convert images

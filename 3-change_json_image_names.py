@@ -3,7 +3,7 @@ import json
 
 
 
-dataset_type = "pulte_lable_81"
+dataset_type = "expriment_three"
 base_url = ""
 
 if dataset_type == "construction":
@@ -18,8 +18,15 @@ elif dataset_type == 'pulte_unlabel':
 elif dataset_type == 'pulte_lable_81':
     files_name = ["valid", "train"]
     base_url = "../../dataset/BrochurePlanLabeling.v5i.coco-segmentation/{}/_annotations.coco.json"
-
-
+    
+elif dataset_type == 'pseudo':
+    files_name = ["train"]
+    base_url = "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo/{}/_annotations.coco.json"
+    
+elif dataset_type == 'expriment_three':
+    files_name = ["test", "train"]
+    base_url = "../../dataset/expriment_three_1/{}/_annotations.coco.json"
+    
 
 for file_name in files_name:
     path = base_url.format(file_name)
@@ -50,7 +57,13 @@ elif dataset_type == 'pulte_lable_81':
     files_name = ["valid", "train"]
     base_url = "../../dataset/experiment_two/{}/_panoptic_annotations.coco.json"
   
-    
+elif dataset_type == 'pseudo':
+    files_name = ["train"]
+    base_url = "/home/ubuntu/code/MaskDINO/output_experiment_two/output/pseudo/{}/_panoptic_annotations.coco.json"
+
+elif dataset_type == 'expriment_three':
+    files_name = ["test", "train"]
+    base_url = "../../dataset/expriment_three_1/{}/_panoptic_annotations.coco.json"    
 
 for file_name in files_name:
     path = base_url.format(file_name)
